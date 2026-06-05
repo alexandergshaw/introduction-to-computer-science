@@ -87,59 +87,64 @@ export default async function Home() {
   return (
     <main className="mx-auto min-h-screen w-full max-w-6xl px-4 py-10 sm:px-8">
       {/* ── Hero Header ─────────────────────────────────────────────────── */}
-      <header className="mb-10 overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 via-violet-700 to-purple-800 p-8 shadow-2xl shadow-indigo-900/60 ring-1 ring-white/10 sm:p-10">
-        {/* Top row: course label + progress pill */}
-        <div className="flex flex-wrap items-start justify-between gap-6">
+      <header className="relative mb-10 overflow-hidden rounded-2xl border border-slate-700/40 bg-slate-900/75 p-8 shadow-2xl shadow-black/40 backdrop-blur-sm sm:p-10">
+        {/* Subtle top accent glow line */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/70 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-blue-600/8 to-transparent" />
+
+        {/* Top row: course label + stats widget */}
+        <div className="relative flex flex-wrap items-start justify-between gap-6">
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-indigo-200">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-400">
               Introduction to Computer Science
             </p>
-            <h1 className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
+            <h1 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Student Portfolio
             </h1>
-            <p className="mt-3 max-w-md text-indigo-200">
+            <p className="mt-3 max-w-md text-sm text-slate-400">
               Complete each module in order — every assignment you finish unlocks the next.
             </p>
           </div>
 
-          {/* Progress badge */}
-          <div className="flex flex-col items-center gap-2 rounded-2xl bg-white/10 px-6 py-4 ring-1 ring-white/20 backdrop-blur-sm">
-            <span className="text-4xl font-black text-white">
-              {completedCount}
-              <span className="text-xl font-semibold text-indigo-200"> / {statuses.length}</span>
-            </span>
-            <span className="text-xs font-semibold uppercase tracking-widest text-indigo-200">
-              Modules Completed
-            </span>
+          {/* Stats widget */}
+          <div className="flex items-stretch divide-x divide-slate-700/60 rounded-xl border border-slate-700/50 bg-slate-800/60">
+            <div className="flex flex-col items-center justify-center px-6 py-4">
+              <span className="text-3xl font-bold tabular-nums text-white">{completedCount}</span>
+              <span className="mt-0.5 text-xs text-slate-400">Completed</span>
+            </div>
+            <div className="flex flex-col items-center justify-center px-6 py-4">
+              <span className="text-3xl font-bold tabular-nums text-white">{statuses.length}</span>
+              <span className="mt-0.5 text-xs text-slate-400">Total</span>
+            </div>
+            <div className="flex flex-col items-center justify-center px-6 py-4">
+              <span className="text-3xl font-bold tabular-nums text-blue-400">{progressPercent}%</span>
+              <span className="mt-0.5 text-xs text-slate-400">Progress</span>
+            </div>
           </div>
         </div>
 
         {/* Progress bar */}
-        <div className="mt-8">
-          <div className="mb-2 flex items-center justify-between text-xs font-semibold text-indigo-200">
-            <span>Overall Progress</span>
-            <span>{progressPercent}%</span>
-          </div>
-          <div className="h-2.5 w-full overflow-hidden rounded-full bg-white/20">
+        <div className="relative mt-8">
+          <div className="h-1 w-full overflow-hidden rounded-full bg-slate-700/60">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-emerald-400 to-teal-300 transition-all duration-700"
+              className="h-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-700"
               style={{ width: `${progressPercent}%` }}
             />
           </div>
         </div>
 
         {/* Legend */}
-        <div className="mt-5 flex flex-wrap gap-4 text-xs font-semibold">
-          <span className="flex items-center gap-1.5 text-emerald-300">
-            <span className="inline-block h-2.5 w-2.5 rounded-full bg-emerald-400" />
+        <div className="relative mt-4 flex flex-wrap gap-5 text-xs text-slate-400">
+          <span className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
             Completed
           </span>
-          <span className="flex items-center gap-1.5 text-amber-300">
-            <span className="inline-block h-2.5 w-2.5 rounded-full bg-amber-400" />
+          <span className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
             In Progress
           </span>
-          <span className="flex items-center gap-1.5 text-slate-300">
-            <span className="inline-block h-2.5 w-2.5 rounded-full bg-slate-400" />
+          <span className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-600" />
             Locked
           </span>
         </div>
