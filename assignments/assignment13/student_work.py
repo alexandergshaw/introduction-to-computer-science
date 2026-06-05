@@ -59,35 +59,35 @@ A docstring is a string literal that appears as the first statement
 in a module, function, class, or method. It describes what it does.
 
   MODULE docstring (top of the file):
-    'This module provides utility functions for string processing.'
+    '''This module provides utility functions for string processing.'''
 
   FUNCTION docstring:
     def calculate_area(radius: float) -> float:
-        #
-        # Calculate the area of a circle.
-        #
-        # Args:
-        #     radius: The radius of the circle in meters.
-        #
-        # Returns:
-        #     The area of the circle in square meters.
-        #
-        # Raises:
-        #     ValueError: If radius is negative.
-        #
+        '''
+        Calculate the area of a circle.
+
+        Args:
+            radius: The radius of the circle in meters.
+
+        Returns:
+            The area of the circle in square meters.
+
+        Raises:
+            ValueError: If radius is negative.
+        '''
         if radius < 0:
             raise ValueError("Radius cannot be negative.")
         return 3.14159 * radius ** 2
 
   CLASS docstring:
     class Student:
-        #
-        # Represents a student in the course.
-        #
-        # Attributes:
-        #     name: The student's full name.
-        #     gpa: The student's current GPA (0.0 to 4.0).
-        #
+        '''
+        Represents a student in the course.
+
+        Attributes:
+            name: The student's full name.
+            gpa: The student's current GPA (0.0 to 4.0).
+        '''
 
 ──────────────────────────────────────────────────────
 DRY — DON'T REPEAT YOURSELF

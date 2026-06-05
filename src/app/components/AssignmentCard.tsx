@@ -28,6 +28,12 @@ const statusBadgeStyles: Record<AssignmentCardProps["status"], string> = {
 };
 
 const statusLabels: Record<AssignmentCardProps["status"], string> = {
+  locked: "Locked",
+  "in-progress": "In Progress",
+  completed: "Completed",
+};
+
+const statusIcons: Record<AssignmentCardProps["status"], string> = {
   locked: "🔒 Locked",
   "in-progress": "▶ In Progress",
   completed: "✓ Completed",
@@ -67,8 +73,11 @@ export function AssignmentCard({ slug, week, title, type, status }: AssignmentCa
           <p className="text-xs font-bold uppercase tracking-widest text-slate-400">
             Week {week}
           </p>
-          <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${statusBadgeStyles[status]}`}>
-            {statusLabels[status]}
+          <span
+            className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${statusBadgeStyles[status]}`}
+            aria-label={`Status: ${statusLabels[status]}`}
+          >
+            {statusIcons[status]}
           </span>
         </div>
 
