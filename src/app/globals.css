@@ -1,17 +1,95 @@
 @import "tailwindcss";
 
 :root {
-  --background: #060c17;
+  --background: #05030f;
   --foreground: #e2e8f0;
 }
 
 body {
-  background-color: #060c17;
+  background-color: #05030f;
+  /* Rich, layered nebula — deep indigo base with violet, blue and teal glows
+     plus a faint magenta cloud, for a much richer sense of space. */
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -8%, rgba(37, 99, 235, 0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 45% 35% at 88% 98%, rgba(16, 185, 129, 0.05) 0%, transparent 70%);
+    radial-gradient(ellipse 95% 65% at 50% -12%, rgba(99, 102, 241, 0.30) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 55% at 88% 8%, rgba(168, 85, 247, 0.20) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 12% 105%, rgba(56, 189, 248, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 78% 112%, rgba(217, 70, 239, 0.14) 0%, transparent 55%),
+    radial-gradient(circle at 65% 38%, rgba(236, 72, 153, 0.08) 0%, transparent 45%);
   background-attachment: fixed;
   color: var(--foreground);
   font-family: Inter, Arial, Helvetica, sans-serif;
   min-height: 100vh;
+}
+
+/* ── Assignment detail page: rendered Markdown ──────────────────────────────── */
+.assignment-prose {
+  color: #cbd5e1;
+  line-height: 1.75;
+  font-size: 0.95rem;
+}
+.assignment-prose h1,
+.assignment-prose h2,
+.assignment-prose h3 {
+  color: #f1f5f9;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.assignment-prose h1 { font-size: 1.6rem; }
+.assignment-prose h2 { font-size: 1.3rem; }
+.assignment-prose h3 { font-size: 1.1rem; }
+.assignment-prose p { margin: 0.85rem 0; }
+.assignment-prose strong { color: #f8fafc; font-weight: 600; }
+.assignment-prose a {
+  color: #67e8f9;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.assignment-prose a:hover { color: #a5f3fc; }
+.assignment-prose ul,
+.assignment-prose ol {
+  margin: 0.85rem 0;
+  padding-left: 1.5rem;
+}
+.assignment-prose ul { list-style: disc; }
+.assignment-prose ol { list-style: decimal; }
+.assignment-prose li { margin: 0.4rem 0; padding-left: 0.25rem; }
+.assignment-prose li::marker { color: #60a5fa; font-weight: 600; }
+.assignment-prose ol > li { margin: 0.9rem 0; }
+.assignment-prose ul ul,
+.assignment-prose ol ul {
+  margin: 0.4rem 0;
+}
+.assignment-prose code {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 0.12rem 0.4rem;
+  border-radius: 0.3rem;
+  font-size: 0.85em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+.assignment-prose pre {
+  background: #0f172a;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 0.6rem;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+.assignment-prose pre code {
+  background: transparent;
+  padding: 0;
+}
+.assignment-prose blockquote {
+  border-left: 3px solid #6366f1;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #94a3b8;
+  font-style: italic;
+}
+.assignment-prose hr {
+  border: 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+  margin: 1.75rem 0;
 }
