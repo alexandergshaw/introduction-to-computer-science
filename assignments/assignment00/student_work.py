@@ -1,33 +1,43 @@
 """
 Assignment 00 — Orientation
 ===========================
-Your first file! Three tiny warm-up problems. Each is just a line of code,
-and the full solutions are written in for you to read and run.
+Your very first file. Three tiny warm-up functions to get you used to the loop
+of "edit the code, then run the tests." Each one is a single line of code.
 
-Problems:
-  1. hello()             -> returns the string "Hello, world!"
-  2. favorite_language() -> returns the name of the language we use
-  3. double_text(text)   -> returns the text repeated twice ("ab" -> "abab")
+How this works: every function below has a description (and usually an example)
+telling you exactly what it should hand back. Write code so the behaviour
+matches, then run test_assignment.py from the Testing panel until all the tests
+turn green.
 
-Things to know:
-  • A function hands back a value with the  return  keyword.
-  • Text in quotes is a "string"; you can join strings together with  + .
+What to build:
+  1. hello()             -> the exact text  Hello, world!
+  2. favorite_language() -> the name of the programming language this course uses
+  3. double_text(text)   -> the given text written out twice in a row
 
-Hint (no spoilers): for double_text, adding a string to itself repeats it.
+Concepts you'll use:
+  • A function hands a value back to whoever called it with the  return  keyword.
+  • Text wrapped in quotes is called a "string".
+  • Two strings can be combined into one longer string with the  +  operator.
+
+Tip: open test_assignment.py to see the exact inputs and expected outputs.
 """
 
 
 def hello() -> str:
-    """Return the classic greeting."""
+    """Return the exact text: Hello, world!"""
     return "Hello, world!"
 
 
 def favorite_language() -> str:
-    """Return the language this course uses."""
+    """Return the name of the programming language this course is taught in."""
     return "Python"
 
 
 def double_text(text: str) -> str:
-    """Return text repeated twice."""
-    # "ab" + "ab" -> "abab"
+    """
+    Return text written out twice in a row, with nothing in between.
+
+    Example:
+        double_text("ab") -> "abab"
+    """
     return text + text

@@ -1,32 +1,50 @@
 """
 Assignment 05 — Data Structures
 ===============================
-Week 5: lists and sets, plus handy built-in helpers. Three short problems.
+Week 5: lists and sets, plus some handy built-in helper functions.
 
-Problems:
-  1. unique_sorted(items) -> the unique values, sorted ascending
-  2. total(nums)          -> the sum of all the numbers
+Write each function so it returns the described value, then run
+test_assignment.py until all the tests pass.
+
+What to build:
+  1. unique_sorted(items) -> the values from items with duplicates removed,
+                             arranged in ascending order
+  2. total(nums)          -> the sum of all the numbers in the list
   3. largest(nums)        -> the biggest number in the list
 
-Things to know:
-  • A set() throws away duplicates; sorted() returns a new ordered list.
-  • sum() adds up a list; max() finds the biggest item.
+Concepts you'll use:
+  • A  set()  drops duplicate values;  sorted()  returns a new list in order.
+  • sum()  adds up the numbers in a list;  max()  finds the largest item.
 
-Hint (no spoilers): each problem is a one-liner using a built-in function.
+Tip: open test_assignment.py to see the exact inputs and expected outputs.
 """
 
 
 def unique_sorted(items: list) -> list:
-    """Return the unique items in ascending order."""
-    # Remove duplicates with set(), then order them with sorted().
+    """
+    Return a list of the unique values from items, sorted in ascending order.
+
+    Example:
+        unique_sorted([3, 1, 2, 1]) -> [1, 2, 3]
+    """
     return sorted(set(items))
 
 
 def total(nums: list) -> float:
-    """Return the sum of nums."""
+    """
+    Return the sum of all the numbers in nums.
+
+    Example:
+        total([1, 2, 3]) -> 6
+    """
     return sum(nums)
 
 
 def largest(nums: list) -> float:
-    """Return the largest number in nums."""
+    """
+    Return the largest number in nums.
+
+    Example:
+        largest([4, 9, 2]) -> 9
+    """
     return max(nums)

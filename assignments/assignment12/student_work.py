@@ -1,34 +1,59 @@
 """
 Assignment 12 — Advanced Unit Testing
 =====================================
-Week 12: functions worth testing with many inputs (think parametrized tests).
+Week 12: functions worth testing across many inputs (think parametrized tests).
+Pay attention to the edge cases described below.
 
-Problems:
-  1. clamp(n, low, high)    -> keep n inside the range [low, high]
-  2. in_range(n, low, high) -> True if low <= n <= high
-  3. sign(n)                -> -1 if negative, 0 if zero, 1 if positive
+Write each function so it matches the description, then run test_assignment.py
+until all the tests pass.
 
-Things to know:
-  • min(x, y) gives the smaller value; max(x, y) gives the larger.
-  • Python lets you chain comparisons:  low <= n <= high.
+What to build:
+  1. clamp(n, low, high)    -> n if it is already within [low, high]; otherwise
+                              the nearest boundary (low if too small, high if too big)
+  2. in_range(n, low, high) -> True if n is between low and high, inclusive
+  3. sign(n)                -> -1 if n is negative, 0 if it is zero, 1 if positive
 
-Hint (no spoilers): clamp pulls n down to high if it's too big and up to low
-if it's too small — min() and max() together do both.
+Concepts you'll use:
+  • min(x, y) returns the smaller of two values; max(x, y) returns the larger.
+  • Python allows chained comparisons, e.g.  low <= n <= high .
+
+Tip: open test_assignment.py to see the exact inputs and expected outputs.
 """
 
 
 def clamp(n: float, low: float, high: float) -> float:
-    """Constrain n to the inclusive range [low, high]."""
+    """
+    Return n limited to the inclusive range [low, high]: n itself if it's already
+    inside the range, otherwise the nearest boundary.
+
+    Example:
+        clamp(5, 0, 10)  -> 5
+        clamp(15, 0, 10) -> 10
+        clamp(-4, 0, 10) -> 0
+    """
     return max(low, min(n, high))
 
 
 def in_range(n: float, low: float, high: float) -> bool:
-    """Return True if n is between low and high (inclusive)."""
+    """
+    Return True if n is between low and high (inclusive), otherwise False.
+
+    Example:
+        in_range(5, 0, 10)  -> True
+        in_range(15, 0, 10) -> False
+    """
     return low <= n <= high
 
 
 def sign(n: float) -> int:
-    """Return -1, 0, or 1 depending on the sign of n."""
+    """
+    Return 1 if n is positive, -1 if n is negative, and 0 if n is zero.
+
+    Example:
+        sign(-3) -> -1
+        sign(0)  -> 0
+        sign(8)  -> 1
+    """
     if n > 0:
         return 1
     if n < 0:

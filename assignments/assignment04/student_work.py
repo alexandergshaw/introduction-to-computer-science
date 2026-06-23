@@ -3,30 +3,54 @@ Assignment 04 — Functions and Modular Programming
 =================================================
 Week 4: parameters, return values, and DEFAULT parameter values.
 
-Problems:
-  1. add(a, b, c=0)               -> sum of the numbers (c is optional)
-  2. greet(name, greeting="Hello")-> "<greeting>, <name>!" (greeting is optional)
-  3. triple(n)                    -> n times 3
+Write each function so it returns the described value, then run
+test_assignment.py until all the tests pass.
 
-Things to know:
-  • Writing  c=0  or  greeting="Hello"  gives a parameter a DEFAULT value,
-    used when the caller leaves that argument out.
+What to build:
+  1. add(a, b, c=0)                -> the sum of the numbers; c is optional, so
+                                      add(a, b) should still work
+  2. greet(name, greeting="Hello") -> a greeting of the form  <greeting>, <name>!
+                                      greeting is optional and defaults to "Hello"
+  3. triple(n)                     -> n multiplied by 3
 
-Hint (no spoilers): #1 adds all three; if c is left off it's 0, so it doesn't
-change the total. #2 uses greeting in the same spot as Assignment 01's greet.
+Concepts you'll use:
+  • Writing  c=0  or  greeting="Hello"  in the signature gives a parameter a
+    DEFAULT value, used automatically when the caller leaves that argument out.
+  • An f-string (  f"..."  ) drops a value into text using  { }  (same as Week 1).
+
+Tip: open test_assignment.py to see the exact inputs and expected outputs.
 """
 
 
 def add(a: float, b: float, c: float = 0) -> float:
-    """Return a + b + c (c is optional, defaults to 0)."""
+    """
+    Return the sum of a, b, and c. c is optional and defaults to 0, so leaving
+    it out simply adds the first two numbers.
+
+    Example:
+        add(2, 3)    -> 5
+        add(2, 3, 4) -> 9
+    """
     return a + b + c
 
 
 def greet(name: str, greeting: str = "Hello") -> str:
-    """Return "<greeting>, <name>!" (greeting defaults to "Hello")."""
+    """
+    Return a greeting of the form "<greeting>, <name>!". greeting is optional and
+    defaults to "Hello".
+
+    Example:
+        greet("Sam")        -> "Hello, Sam!"
+        greet("Sam", "Hi")  -> "Hi, Sam!"
+    """
     return f"{greeting}, {name}!"
 
 
 def triple(n: float) -> float:
-    """Return n times 3."""
+    """
+    Return n multiplied by 3.
+
+    Example:
+        triple(4) -> 12
+    """
     return n * 3

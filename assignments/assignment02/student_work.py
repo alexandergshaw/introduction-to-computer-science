@@ -3,30 +3,48 @@ Assignment 02 — Variables and Deployment
 =========================================
 Week 2: variables and arithmetic. Three short calculations.
 
-Problems:
-  1. rectangle_area(width, height) -> width * height
-  2. square(n)                     -> n multiplied by itself
-  3. average(a, b)                 -> the mean of two numbers, (a + b) / 2
+Write each function so it returns the described value, then run
+test_assignment.py until all the tests pass.
 
-Things to know:
-  • Python math symbols:  +  -  *  /   (* is multiply, / is divide).
-  • Use parentheses to control the order:  (a + b) / 2  adds first, then divides.
+What to build:
+  1. rectangle_area(width, height) -> the area of that rectangle
+  2. square(n)                     -> n squared (n multiplied by itself)
+  3. average(a, b)                 -> the average (mean) of the two numbers
 
-Hint (no spoilers): a square's area is a side times itself.
+Concepts you'll use:
+  • Python's math operators:  +  -  *  /   (  *  multiplies,  /  divides).
+  • Parentheses control the order of operations, just like in normal maths —
+    what's inside the parentheses happens first.
+
+Tip: open test_assignment.py to see the exact inputs and expected outputs.
 """
 
 
 def rectangle_area(width: float, height: float) -> float:
-    """Return width * height."""
+    """
+    Return the area of a rectangle with the given width and height.
+
+    Example:
+        rectangle_area(3, 4) -> 12
+    """
     return width * height
 
 
 def square(n: float) -> float:
-    """Return n times itself."""
+    """
+    Return n squared (the result of multiplying n by itself).
+
+    Example:
+        square(4) -> 16
+    """
     return n * n
 
 
 def average(a: float, b: float) -> float:
-    """Return the average of a and b."""
-    # Add the two numbers first, THEN divide by 2.
+    """
+    Return the average (mean) of the two numbers a and b.
+
+    Example:
+        average(4, 6) -> 5
+    """
     return (a + b) / 2
