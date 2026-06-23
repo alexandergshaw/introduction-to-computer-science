@@ -1,122 +1,43 @@
 """
-Student Work — Review 14: Review Module 2
-==========================================
-Week 14 is the second review week — a dedicated opportunity to
-consolidate your learning from Weeks 8 through 13, plus a cumulative
-pass over Weeks 0–7, before the final exam.
+Review 14 — Review 2
+====================
+A mixed review of Weeks 8–13: classes, error handling, and testing-friendly
+functions. Three short problems.
 
-──────────────────────────────────────────────────────
-TOPICS TO REVIEW
-──────────────────────────────────────────────────────
-Use this week to revisit and solidify your understanding of:
+Problems:
+  1. BankAccount(balance=0) with .deposit(amount) and .withdraw(amount)  (OOP)
+  2. safe_divide(a, b) -> a / b, or None if b is 0                       (error handling)
+  3. is_palindrome(s)  -> True if s reads the same backwards             (testing)
 
-  WEEK 8 — OOP: Classes
-    □ Defining a class with class ClassName:
-    □ The __init__ constructor and the self parameter
-    □ Instance attributes vs class attributes
-    □ Instance methods
-    □ Creating and using objects (instances)
-
-  WEEK 9 — Advanced OOP
-    □ Inheritance: child class extends parent class
-    □ super().__init__() — calling the parent constructor
-    □ Method overriding — redefining a parent's method in a child
-    □ Polymorphism — same method name, different behavior per class
-    □ Encapsulation — _protected and __private conventions
-    □ Abstract base classes (ABC) and @abstractmethod
-
-  WEEK 10 — Error Handling and File I/O
-    □ try / except / else / finally
-    □ Common exception types: ValueError, TypeError, IndexError, etc.
-    □ raise — throwing exceptions intentionally
-    □ Opening, reading, and writing files with open() and "with"
-    □ File modes: "r", "w", "a"
-
-  WEEK 11 — Unit Testing
-    □ What a unit test is and why we write them
-    □ pytest: test functions start with test_
-    □ assert statements
-    □ Testing edge cases
-    □ pytest.raises() for testing expected exceptions
-    □ The TDD cycle: Red → Green → Refactor
-
-  WEEK 12 — Advanced Unit Testing
-    □ Fixtures for reusable setup (@pytest.fixture, tmp_path)
-    □ Parametrization (@pytest.mark.parametrize)
-    □ Mocking / monkeypatch to isolate code under test
-    □ The Arrange–Act–Assert structure
-    □ Measuring coverage (pytest --cov)
-
-  WEEK 13 — Best Practices
-    □ PEP 8 naming conventions (snake_case, PascalCase, UPPER_CASE)
-    □ Docstrings (module, function, class)
-    □ DRY: Don't Repeat Yourself
-    □ Meaningful variable and function names
-    □ Comments explain WHY, not WHAT
-    □ Single responsibility principle for functions
-
-  CUMULATIVE — also on Exam 2 (from Weeks 0–7; see Review 1)
-    □ Git & GitHub workflow: branching off main, commits, PRs, merging
-    □ Python basics: running files, print(), comments, reading errors
-    □ Variables & data types; operators; if/elif/else and loops
-    □ Functions: parameters, return values, scope
-    □ Data structures: list, dict, tuple, set
-
-──────────────────────────────────────────────────────
-SELF-TEST QUESTIONS
-──────────────────────────────────────────────────────
-Try answering these without looking anything up:
-
-  1. What keyword defines a class? What keyword is used for inheritance?
-  2. Why must every instance method have "self" as its first parameter?
-  3. What does super() do? When would you use it?
-  4. What is the difference between "w" and "a" file modes?
-  5. What makes a good unit test? Name three characteristics.
-  6. What is a pytest fixture, and when would you use one?
-  7. How does @pytest.mark.parametrize reduce duplicated test code?
-  8. What does DRY mean? Give an example of a DRY violation and how to fix it.
-
-──────────────────────────────────────────────────────
-REVIEW STRATEGY
-──────────────────────────────────────────────────────
-  1. For each week above, open your student_work.py and re-read
-     the comments (the reference material is right there!).
-  2. Try to re-implement examples from memory.
-  3. Focus most of your time on topics where you feel least confident.
-  4. The best preparation is writing code — not just reading it.
-
-──────────────────────────────────────────────────────
-YOUR TASK
-──────────────────────────────────────────────────────
-1. Read INSTRUCTIONS.md for any specific review exercises.
-2. Complete those exercises.
-3. When finished, change MODULE_COMPLETED to True.
-
-The final exam and the final project are just around the corner.
-You've learned so much — this review will tie it all together! 🎓
+Hint (no spoilers): deposit raises the balance, withdraw lowers it;
+safe_divide catches the divide-by-zero; a palindrome equals its reverse.
 """
 
-# ─── Exercise solution ──────────────────────────────────────────────────────
-# Exercise: a BankAccount that remembers its balance and supports deposits
-# and withdrawals.
-#   acct = BankAccount(); acct.deposit(100); acct.withdraw(30)  -> balance 70
-# Things to know:
-#   • __init__ sets up a new account; "balance=0" means it starts empty unless
-#     you pass a starting amount, e.g. BankAccount(50).
-#   • self.balance is THIS account's running total.
-#   • "+=" adds to a value in place; "-=" subtracts from it.
-# Hint (no spoilers): deposit makes the balance go up, withdraw makes it go down.
+
 class BankAccount:
-    """A minimal bank account."""
+    """A minimal bank account that tracks a balance."""
 
     def __init__(self, balance: float = 0) -> None:
-        # Remember the starting balance on this specific account.
         self.balance = balance
 
     def deposit(self, amount: float) -> None:
         """Add amount to the balance."""
-        self.balance += amount   # same as: self.balance = self.balance + amount
+        self.balance += amount
 
     def withdraw(self, amount: float) -> None:
         """Subtract amount from the balance."""
-        self.balance -= amount   # take the money back out
+        self.balance -= amount
+
+
+def safe_divide(a: float, b: float):
+    """Return a / b, or None if b is 0."""
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return None
+
+
+def is_palindrome(s: str) -> bool:
+    """Return True if s is the same backwards (case-insensitive)."""
+    cleaned = s.lower()
+    return cleaned == cleaned[::-1]

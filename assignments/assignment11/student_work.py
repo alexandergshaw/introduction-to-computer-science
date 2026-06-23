@@ -1,24 +1,35 @@
 """
 Assignment 11 — Unit Testing
 ============================
-Week 11: writing tests and thinking about edge cases.
+Week 11: small, easy-to-test functions (and edge cases). Three problems.
 
-Exercise: is_palindrome(s) is True if s reads the same forwards and backwards
-(ignoring capital letters).
-  is_palindrome("racecar") -> True      is_palindrome("hello") -> False
+Problems:
+  1. is_palindrome(s) -> True if s reads the same backwards (ignoring case)
+  2. is_even(n)       -> True if n is even
+  3. absolute(n)      -> the distance from 0 (always 0 or positive)
 
 Things to know:
-  • s.lower() makes the text all lowercase, so "Anna" still counts.
-  • s[::-1] is a handy Python trick that gives you the string REVERSED.
-  • Comparing two strings with  ==  gives back True or False.
+  • s.lower() ignores capitalization; s[::-1] is the string reversed.
+  • n % 2 == 0 tests for even.
 
-Hint (no spoilers): make the text lowercase, then check whether it equals
-its own reverse.
+Hint (no spoilers): a palindrome equals its own reverse; absolute flips the
+sign only when n is negative.
 """
 
 
 def is_palindrome(s: str) -> bool:
     """Return True if s is the same backwards (case-insensitive)."""
-    cleaned = s.lower()            # ignore capitalization first
-    # cleaned[::-1] is "cleaned" spelled backwards; == checks if they match.
+    cleaned = s.lower()
     return cleaned == cleaned[::-1]
+
+
+def is_even(n: int) -> bool:
+    """Return True if n is even."""
+    return n % 2 == 0
+
+
+def absolute(n: float) -> float:
+    """Return the absolute value of n (its distance from 0)."""
+    if n < 0:
+        return -n
+    return n

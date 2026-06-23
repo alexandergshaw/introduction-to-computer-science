@@ -16,23 +16,17 @@ def load_student_work():
     return module
 
 
-def test_bank_account():
+def test_rectangle():
     m = load_student_work()
-    acct = m.BankAccount()          # starts at 0
-    assert acct.balance == 0
-    acct.deposit(100)               # +100
-    acct.withdraw(30)               # -30
-    assert acct.balance == 70
-    assert m.BankAccount(50).balance == 50   # opening balance
+    assert m.Rectangle(2, 3).area() == 6
+    assert m.Rectangle(4, 5).area() == 20
 
 
-def test_safe_divide():
+def test_square():
     m = load_student_work()
-    assert m.safe_divide(6, 2) == 3
-    assert m.safe_divide(1, 0) is None
+    assert m.Square(4).area() == 16
 
 
-def test_is_palindrome():
+def test_person():
     m = load_student_work()
-    assert m.is_palindrome("racecar") is True
-    assert m.is_palindrome("hello") is False
+    assert m.Person("Ada").greet() == "Hi, I'm Ada"

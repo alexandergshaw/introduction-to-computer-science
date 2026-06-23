@@ -16,23 +16,18 @@ def load_student_work():
     return module
 
 
-def test_bank_account():
+def test_greet():
     m = load_student_work()
-    acct = m.BankAccount()          # starts at 0
-    assert acct.balance == 0
-    acct.deposit(100)               # +100
-    acct.withdraw(30)               # -30
-    assert acct.balance == 70
-    assert m.BankAccount(50).balance == 50   # opening balance
+    assert m.greet("Sam") == "Hello, Sam!"
+    assert m.greet("Ada") == "Hello, Ada!"
 
 
-def test_safe_divide():
+def test_loud():
     m = load_student_work()
-    assert m.safe_divide(6, 2) == 3
-    assert m.safe_divide(1, 0) is None
+    assert m.loud("hi") == "HI"
+    assert m.loud("Wow") == "WOW"
 
 
-def test_is_palindrome():
+def test_add_excitement():
     m = load_student_work()
-    assert m.is_palindrome("racecar") is True
-    assert m.is_palindrome("hello") is False
+    assert m.add_excitement("go") == "go!"

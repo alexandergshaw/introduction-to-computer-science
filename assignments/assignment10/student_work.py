@@ -1,27 +1,42 @@
 """
 Assignment 10 — Error Handling and File I/O
 ===========================================
-Week 10: try / except, and handling errors gracefully.
+Week 10: try / except — reacting to errors instead of crashing.
 
-Exercise: safe_divide(a, b) returns a / b, but if b is 0 it returns None
-instead of crashing.
-  safe_divide(6, 2) -> 3.0      safe_divide(1, 0) -> None
+Problems:
+  1. safe_divide(a, b)        -> a / b, or None if b is 0
+  2. to_int(text, default=0)  -> int(text), or default if text isn't a number
+  3. safe_get(items, index)   -> items[index], or None if the index is out of range
 
 Things to know:
-  • Dividing by zero normally CRASHES with a ZeroDivisionError.
-  • "try / except" lets you attempt risky code and react if it fails.
-  • None is Python's way of saying "no value".
+  • "try" runs risky code; "except SomeError" catches that specific failure.
+  • Dividing by 0 raises ZeroDivisionError; int("abc") raises ValueError;
+    a bad list index raises IndexError.
 
-Hint (no spoilers): try the division; if the zero-division error happens,
-catch it and return None instead of letting the program crash.
+Hint (no spoilers): attempt the normal action in try; in except, return the
+safe fallback (None or default).
 """
 
 
 def safe_divide(a: float, b: float):
     """Return a / b, or None if b is 0."""
     try:
-        # This line is the risky part: it blows up if b is 0.
         return a / b
     except ZeroDivisionError:
-        # We only land here when the division failed because b was 0.
+        return None
+
+
+def to_int(text: str, default: int = 0) -> int:
+    """Return text converted to an int, or default if that fails."""
+    try:
+        return int(text)
+    except ValueError:
+        return default
+
+
+def safe_get(items: list, index: int):
+    """Return items[index], or None if index is out of range."""
+    try:
+        return items[index]
+    except IndexError:
         return None

@@ -16,23 +16,19 @@ def load_student_work():
     return module
 
 
-def test_bank_account():
+def test_dog():
     m = load_student_work()
-    acct = m.BankAccount()          # starts at 0
-    assert acct.balance == 0
-    acct.deposit(100)               # +100
-    acct.withdraw(30)               # -30
-    assert acct.balance == 70
-    assert m.BankAccount(50).balance == 50   # opening balance
+    assert m.Dog().speak() == "Woof!"
+    assert isinstance(m.Dog(), m.Animal)   # a Dog is still an Animal
 
 
-def test_safe_divide():
+def test_cat():
     m = load_student_work()
-    assert m.safe_divide(6, 2) == 3
-    assert m.safe_divide(1, 0) is None
+    assert m.Cat().speak() == "Meow!"
+    assert isinstance(m.Cat(), m.Animal)
 
 
-def test_is_palindrome():
+def test_cow():
     m = load_student_work()
-    assert m.is_palindrome("racecar") is True
-    assert m.is_palindrome("hello") is False
+    assert m.Cow().speak() == "Moo!"
+    assert isinstance(m.Cow(), m.Animal)
