@@ -2,13 +2,15 @@
 Student Work — Exam 7: Exam Practice 1
 =======================================
 Week 7 is Exam Practice 1. This module helps you prepare for your
-first exam by reviewing and applying everything from Weeks 1–6.
+first exam by reviewing and applying everything from Weeks 0–6.
 
 ──────────────────────────────────────────────────────
 WHAT THE EXAM COVERS
 ──────────────────────────────────────────────────────
 Exam 1 tests your knowledge of:
 
+  ✓ Git & GitHub workflow (Week 0): branching off main, commits, pull requests, merging
+  ✓ Python basics (Week 1): running a file, print(), comments, reading errors
   ✓ Python data types (int, float, str, bool, None)
   ✓ Variable creation and assignment
   ✓ Comparison and logical operators
@@ -80,16 +82,15 @@ YOUR TASK
 You've covered a lot of ground. Trust your preparation! 🎯
 """
 
-# ─── Completion Flag ──────────────────────────────────────────────────────────
-#
-# Change False to True after completing all exam practice exercises.
-#
-MODULE_COMPLETED = False
-
-
-# ─── Status Function ──────────────────────────────────────────────────────────
-# Do NOT change this function.
-#
-def module_status() -> bool:
-    """Return module completion state."""
-    return MODULE_COMPLETED
+# ─── Exercise solution ──────────────────────────────────────────────────────
+def letter_grade(score: float) -> str:
+    """Return the letter grade for a numeric score (0–100)."""
+    if score >= 90:
+        return "A"
+    if score >= 80:
+        return "B"
+    if score >= 70:
+        return "C"
+    if score >= 60:
+        return "D"
+    return "F"

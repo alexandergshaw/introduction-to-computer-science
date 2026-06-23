@@ -21,7 +21,36 @@ body {
   min-height: 100vh;
 }
 
+/* ── Current-assignment pulse (table of contents dot) ──────────────────────── */
+@keyframes tocPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 4px 0 rgba(251, 191, 36, 0.4);
+    opacity: 0.8;
+  }
+  50% {
+    box-shadow: 0 0 12px 3px rgba(251, 191, 36, 0.9);
+    opacity: 1;
+  }
+}
+.toc-current {
+  animation: tocPulse 3.2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .toc-current {
+    animation: none;
+  }
+}
+
 /* ── Assignment detail page: rendered Markdown ──────────────────────────────── */
+.assignment-prose iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 0.6rem;
+  margin: 1.25rem 0;
+}
 .assignment-prose {
   color: #cbd5e1;
   line-height: 1.75;

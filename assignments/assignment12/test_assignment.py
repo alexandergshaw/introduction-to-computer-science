@@ -11,13 +11,8 @@ def load_student_work():
     return module
 
 
-def test_module_completed_flag():
-    module = load_student_work()
-    assert hasattr(module, "MODULE_COMPLETED")
-    assert module.MODULE_COMPLETED is True
-
-
-def test_module_status_function_matches_flag():
-    module = load_student_work()
-    assert hasattr(module, "module_status")
-    assert module.module_status() is module.MODULE_COMPLETED
+def test_clamp():
+    m = load_student_work()
+    assert m.clamp(5, 0, 10) == 5
+    assert m.clamp(-3, 0, 10) == 0
+    assert m.clamp(99, 0, 10) == 10

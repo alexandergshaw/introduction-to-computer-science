@@ -1,161 +1,103 @@
 """
-Student Work — Assignment 12: Git and Branching
-================================================
-Week 12 covers Git — the version control system used by virtually
-every professional software team on the planet.
+Student Work — Assignment 12: Advanced Unit Testing
+====================================================
+Week 11 introduced unit testing: what a test is, pytest, assert, testing
+edge cases, pytest.raises(), and the Red → Green → Refactor cycle. Week 12
+extends that foundation with the tools professionals use to write larger,
+cleaner, more thorough test suites.
+
+(You already practiced Git, branching, and pull requests back in Week 0's
+setup, and you'll use them every time you submit — so this week we go
+deeper on testing instead.)
+
+Objectives for this week:
+
+  ✓ Share setup with fixtures
+  ✓ Run one test against many inputs with parametrization
+  ✓ Isolate code from the outside world with mocking / monkeypatch
+  ✓ Organize tests with the Arrange–Act–Assert pattern
+  ✓ Measure how much of your code is exercised with coverage
 
 ──────────────────────────────────────────────────────
-WHAT IS GIT?
+FIXTURES — REUSABLE SETUP
 ──────────────────────────────────────────────────────
-Git is a "version control system" — a tool that tracks changes to your
-files over time. With Git you can:
+A fixture builds something your tests need (a sample object, a temp file,
+a database connection) so you don't repeat setup in every test.
 
-  • See a complete history of every change ever made to your code
-  • Go back to any previous version if you break something
-  • Work on multiple features simultaneously without conflict
-  • Collaborate with other developers on the same codebase
+    import pytest
 
-Think of Git as an unlimited "undo" button for your entire project,
-with the ability to label and revisit any point in time.
+    @pytest.fixture
+    def sample_account():
+        return Account(balance=100)
 
-──────────────────────────────────────────────────────
-KEY GIT CONCEPTS
-──────────────────────────────────────────────────────
-  REPOSITORY (repo)
-      A folder tracked by Git. Contains all your files AND the full
-      history of every change. Your assignment repo is a Git repo.
+    def test_withdraw(sample_account):
+        sample_account.withdraw(40)
+        assert sample_account.balance == 60
 
-  COMMIT
-      A snapshot of your files at a specific point in time. Each commit
-      has a unique ID (hash), a message, an author, and a timestamp.
-      Commits are the "save points" in your project's history.
-
-  BRANCH
-      An independent line of development. The default branch is usually
-      called "main" (or "master" in older repos). You can create new
-      branches to work on features without affecting the main branch.
-
-  MERGE
-      Combining changes from one branch into another.
-
-  REMOTE
-      A copy of the repository hosted online (e.g., on GitHub). "origin"
-      is the conventional name for the primary remote.
+pytest also ships built-in fixtures like `tmp_path` (a temporary folder)
+for tests that touch the file system.
 
 ──────────────────────────────────────────────────────
-ESSENTIAL GIT COMMANDS
+PARAMETRIZATION — ONE TEST, MANY CASES
 ──────────────────────────────────────────────────────
-  git status
-      → Shows which files have been changed, staged, or not tracked.
-        Run this often — it's your "what's going on?" command.
+Instead of copy-pasting a test for each input, run it against a table:
 
-  git add <file>
-  git add .           (stage ALL changed files)
-      → "Stages" files, marking them to be included in the next commit.
+    @pytest.mark.parametrize("a, b, expected", [
+        (2, 3, 5),
+        (-1, 1, 0),
+        (0, 0, 0),
+    ])
+    def test_add(a, b, expected):
+        assert add(a, b) == expected
 
-  git commit -m "your message here"
-      → Creates a commit (snapshot) of your staged files.
-        Write clear, descriptive messages! Bad: "fix". Good: "Fix crash
-        when user enters empty string in login form".
-
-  git log
-  git log --oneline   (compact view)
-      → Shows the commit history.
-
-  git diff
-      → Shows what has changed in your files since the last commit.
-
-  git push origin main
-      → Sends your local commits to the remote repository (GitHub).
-
-  git pull origin main
-      → Downloads the latest commits from GitHub to your local machine.
-
-  git clone <url>
-      → Creates a local copy of a remote repository.
+That's three independent test cases from one function.
 
 ──────────────────────────────────────────────────────
-BRANCHING WORKFLOW
+MOCKING / MONKEYPATCH — ISOLATING YOUR CODE
 ──────────────────────────────────────────────────────
-  git branch                    # list all branches
-  git branch feature-login      # create a new branch called feature-login
-  git switch feature-login      # switch to that branch
-  # (or: git checkout -b feature-login  — create AND switch in one command)
+A unit test should test YOUR code, not the network or the clock. Replace
+real dependencies with stand-ins:
 
-  # ... make changes, commit them ...
+    def test_greeting(monkeypatch):
+        monkeypatch.setattr("mymodule.now", lambda: "morning")
+        assert greeting() == "Good morning"
 
-  git switch main               # go back to main
-  git merge feature-login       # merge your feature into main
-
-WHY BRANCH?
-  • Work on a new feature without breaking the main branch
-  • Multiple developers can work on different features simultaneously
-  • Easy to abandon a failed experiment (just delete the branch)
-  • Code review: others review a branch before it merges
+`unittest.mock` (Mock, patch) does the same for objects and functions, and
+lets you assert a dependency was called as expected.
 
 ──────────────────────────────────────────────────────
-MERGE CONFLICTS
+ARRANGE — ACT — ASSERT
 ──────────────────────────────────────────────────────
-A merge conflict happens when two branches changed the SAME line of
-the SAME file differently. Git doesn't know which version to keep,
-so it asks you.
+Structure each test in three clear phases:
 
-Conflicted files will have markers like this:
+    def test_deposit():
+        account = Account(balance=0)   # Arrange
+        account.deposit(50)            # Act
+        assert account.balance == 50   # Assert
 
-    <<<<<<< HEAD
-    your version of the line
-    =======
-    their version of the line
-    >>>>>>> feature-branch
-
-You manually edit the file to keep what you want, remove the markers,
-save, then: git add <file> and git commit.
+Each test should check ONE behavior and have a descriptive name.
 
 ──────────────────────────────────────────────────────
-GIT IN CODESPACES (NO TERMINAL NEEDED)
+COVERAGE — WHAT DID THE TESTS ACTUALLY RUN?
 ──────────────────────────────────────────────────────
-In GitHub Codespaces you can do most Git operations using the
-Source Control panel (the branching icon in the left sidebar):
+Coverage measures which lines your tests execute:
 
-  • View changed files
-  • Stage files (click the + icon)
-  • Write a commit message and click Commit
-  • Sync (push/pull) with the cloud button
-  • Create/switch branches from the status bar at the bottom
+    pytest --cov=mymodule
+
+High coverage doesn't guarantee correctness, but lines that are never run
+are definitely untested. Aim to cover the important paths and edge cases.
 
 ──────────────────────────────────────────────────────
 YOUR TASK
 ──────────────────────────────────────────────────────
-1. Read INSTRUCTIONS.md for the specific exercises.
-2. Practice creating branches, making commits, and merging.
-3. When done, change MODULE_COMPLETED to True.
+1. Read INSTRUCTIONS.md and complete this module in Codespaces.
+2. Practice: add a fixture and a parametrized test to a small function.
+3. When finished, change MODULE_COMPLETED to True.
 
-TROUBLESHOOTING
----------------
-  ✗ "error: Your local changes would be overwritten by merge"
-      → Commit or stash your local changes before pulling/merging.
-
-  ✗ "CONFLICT — Automatic merge failed"
-      → Open the conflicted file, resolve the markers, save,
-        git add, then git commit.
-
-  ✗ "fatal: not a git repository"
-      → You're in the wrong folder. Navigate to your project root first.
-
-Git is the #1 tool in every developer's toolkit. Invest time here —
-it pays dividends for your entire career! 🌿
+Strong tests are what let you change code without fear. 🧪
 """
 
-# ─── Completion Flag ──────────────────────────────────────────────────────────
-#
-# Change False to True after completing all Git and branching exercises.
-#
-MODULE_COMPLETED = False
-
-
-# ─── Status Function ──────────────────────────────────────────────────────────
-# Do NOT change this function.
-#
-def module_status() -> bool:
-    """Return module completion state."""
-    return MODULE_COMPLETED
+# ─── Exercise solution ──────────────────────────────────────────────────────
+def clamp(n: float, low: float, high: float) -> float:
+    """Constrain n to the inclusive range [low, high]."""
+    return max(low, min(n, high))

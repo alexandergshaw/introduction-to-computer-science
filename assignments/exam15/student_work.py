@@ -14,46 +14,70 @@ WHAT THE EXAM COVERS
   ✓ Error Handling: try/except/else/finally, raise, exception types
   ✓ File I/O: open(), reading, writing, "with" statement
   ✓ Unit Testing: assert, pytest patterns, edge cases
-  ✓ Git: commit workflow, branching, merging
+  ✓ Advanced Unit Testing: fixtures, parametrization, mocking, coverage
   ✓ Best Practices: PEP 8, docstrings, DRY, naming
 
-  PLUS (from Weeks 1–7):
+  PLUS (from Weeks 0–7):
+  ✓ Git & GitHub workflow: branching off main, commits, pull requests, merging
+  ✓ Python basics: running files, print(), comments, reading errors
   ✓ Variables, data types, operators
   ✓ Control flow: if/elif/else, loops
   ✓ Functions: parameters, return values, scope
   ✓ Data structures: list, dict, tuple, set
 
 ──────────────────────────────────────────────────────
-PRACTICE PROBLEMS — TRY THESE WITHOUT HELP
+PRACTICE PROBLEMS — SMALL & GUIDED (fill in the blank, then run to check)
 ──────────────────────────────────────────────────────
-  1. Write a class Vehicle with attributes make, model, year, and
-     a method describe() that prints a sentence about the vehicle.
-     Then create a class ElectricVehicle that inherits from Vehicle
-     and adds a battery_range attribute.
+These are intentionally short. Each is only a line or two — together they
+touch every topic above without any trick questions.
 
-  2. Write a function safe_divide(a, b) that returns a / b, but
-     handles ZeroDivisionError gracefully by returning None.
+  1. CLASS + METHOD (OOP)
+     Fill in describe() so it prints the make and model:
 
-  3. Write a function read_lines(filename) that reads a text file
-     and returns a list of lines. Handle FileNotFoundError.
+         class Car:
+             def __init__(self, make, model):
+                 self.make = make
+                 self.model = model
+             def describe(self):
+                 print(________)        # e.g. prints: Toyota Corolla
 
-  4. Write two unit tests for safe_divide():
-       - One that checks a normal division
-       - One that checks division by zero returns None
+         Car("Toyota", "Corolla").describe()
 
-  5. Trace this code — what does it print?
-       class Animal:
-           def speak(self):
-               return "..."
-       class Dog(Animal):
-           def speak(self):
-               return "Woof!"
-       class Cat(Animal):
-           def speak(self):
-               return "Meow!"
-       animals = [Dog(), Cat(), Animal()]
-       for a in animals:
-           print(a.speak())
+  2. INHERITANCE + POLYMORPHISM
+     Write a Dog subclass (1–2 lines) that overrides speak():
+
+         class Animal:
+             def speak(self):
+                 return "..."
+
+         # class Dog(Animal):  ← you finish this so speak() returns "Woof!"
+
+         print(Dog().speak())           # should print: Woof!
+
+  3. ERROR HANDLING
+     Fill in the except so it returns None instead of crashing:
+
+         def safe_divide(a, b):
+             try:
+                 return a / b
+             except ____________:       # which error happens at b = 0?
+                 return None
+
+  4. FILE I/O
+     Use the safe "with" pattern to print each line of a file:
+
+         with open("notes.txt") as f:
+             for line in f:
+                 print(line.strip())
+
+  5. UNIT TEST
+     Fill in the expected value so the test passes:
+
+         def add(a, b):
+             return a + b
+
+         def test_add():
+             assert add(2, 3) == ____
 
 ──────────────────────────────────────────────────────
 EXAM STRATEGY
@@ -87,16 +111,37 @@ You have come SO far this semester. Trust your preparation and give
 it your best shot. You've got this! 🎯
 """
 
-# ─── Completion Flag ──────────────────────────────────────────────────────────
-#
-# Change False to True after completing all exam practice exercises.
-#
-MODULE_COMPLETED = False
+# ─── Exercise solutions ─────────────────────────────────────────────────────
+class Car:
+    """A car that can describe itself."""
+
+    def __init__(self, make: str, model: str) -> None:
+        self.make = make
+        self.model = model
+
+    def describe(self) -> str:
+        """Return 'make model'."""
+        return f"{self.make} {self.model}"
 
 
-# ─── Status Function ──────────────────────────────────────────────────────────
-# Do NOT change this function.
-#
-def module_status() -> bool:
-    """Return module completion state."""
-    return MODULE_COMPLETED
+class Animal:
+    def speak(self) -> str:
+        return "..."
+
+
+class Dog(Animal):
+    def speak(self) -> str:
+        return "Woof!"
+
+
+def safe_divide(a: float, b: float):
+    """Return a / b, or None if dividing by zero."""
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return None
+
+
+def add(a: float, b: float) -> float:
+    """Return a + b."""
+    return a + b

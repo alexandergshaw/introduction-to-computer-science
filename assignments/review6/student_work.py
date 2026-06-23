@@ -9,10 +9,17 @@ TOPICS TO REVIEW
 ──────────────────────────────────────────────────────
 Use this week to revisit and strengthen your understanding of:
 
-  WEEK 1 — Environment Setup
-    □ How Codespaces works
-    □ How to run tests in the VS Code Testing panel
-    □ How to commit and sync changes via Source Control
+  WEEK 0 — Setup & GitHub Workflow
+    □ Fork, Codespaces, and deploying with Vercel
+    □ Branching off main
+    □ Commit & push via the Source Control panel
+    □ Opening a pull request and merging into main
+
+  WEEK 1 — Python Basics
+    □ Running a Python file in Codespaces
+    □ print() and showing output
+    □ Comments (#) and basic syntax
+    □ Reading error messages / tracebacks
 
   WEEK 2 — Variables and Deployment
     □ Python data types: int, float, str, bool, None
@@ -71,16 +78,7 @@ Taking time to consolidate your knowledge now makes everything
 in the second half of the semester much easier. 📚
 """
 
-# ─── Completion Flag ──────────────────────────────────────────────────────────
-#
-# Change False to True after completing all review activities.
-#
-MODULE_COMPLETED = False
-
-
-# ─── Status Function ──────────────────────────────────────────────────────────
-# Do NOT change this function.
-#
-def module_status() -> bool:
-    """Return module completion state."""
-    return MODULE_COMPLETED
+# ─── Exercise solution ──────────────────────────────────────────────────────
+def even_numbers(nums: list) -> list:
+    """Return the even numbers from nums, preserving order."""
+    return [n for n in nums if n % 2 == 0]

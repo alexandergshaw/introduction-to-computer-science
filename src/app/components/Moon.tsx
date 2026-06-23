@@ -13,6 +13,7 @@ type MoonProps = {
   status: AssignmentStatus;
   reducedMotion: boolean;
   highlighted: boolean;
+  current: boolean;
   onHover: (over: boolean) => void;
   onSelect: () => void;
 };
@@ -26,6 +27,7 @@ export function Moon({
   status,
   reducedMotion,
   highlighted,
+  current,
   onHover,
   onSelect,
 }: MoonProps) {
@@ -50,7 +52,7 @@ export function Moon({
 
   const active = hovered || highlighted;
 
-  useFrame((_, delta) => {
+  useFrame((state, delta) => {
     // Orbit.
     if (!reducedMotion) angleRef.current += delta * orbit.speed;
     if (moverRef.current) {
@@ -58,13 +60,20 @@ export function Moon({
       moverRef.current.position.set(Math.cos(a) * orbit.radius, 0, Math.sin(a) * orbit.radius);
     }
 
-    // Smoothly ease scale + glow toward the active target (exponential damping).
-    const targetScale = orbit.size * (active ? HIGHLIGHT_SCALE : 1);
+    // The assignment the student is on: subtly, slowly, smoothly pulse it.
+    const pulse = current && !reducedMotion ? 0.5 - 0.5 * Math.cos(state.clock.elapsedTime * 1.4) : 0; // 0 → 1, ~4.5s cycle
+
+    // Smoothly ease scale toward the active target (hover wins; otherwise the
+    // current moon gently breathes larger and back).
+    const targetScale = orbit.size * (active ? HIGHLIGHT_SCALE : 1 + pulse * 0.45);
     scaleRef.current = THREE.MathUtils.damp(scaleRef.current, targetScale, 9, delta);
     if (meshRef.current) meshRef.current.scale.setScalar(scaleRef.current);
 
     highlightRef.current = THREE.MathUtils.damp(highlightRef.current, active ? 1 : 0, 9, delta);
     material.uniforms.uHighlight.value = highlightRef.current;
+
+    // Brighten the current moon's glow in time with the breathing.
+    material.uniforms.uEmissiveIntensity.value = colors.emissiveIntensity + pulse * 1.1;
   });
 
   const setCursor = (over: boolean) => {

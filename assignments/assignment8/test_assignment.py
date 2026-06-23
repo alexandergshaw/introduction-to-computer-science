@@ -11,13 +11,7 @@ def load_student_work():
     return module
 
 
-def test_module_completed_flag():
-    module = load_student_work()
-    assert hasattr(module, "MODULE_COMPLETED")
-    assert module.MODULE_COMPLETED is True
-
-
-def test_module_status_function_matches_flag():
-    module = load_student_work()
-    assert hasattr(module, "module_status")
-    assert module.module_status() is module.MODULE_COMPLETED
+def test_rectangle():
+    m = load_student_work()
+    assert m.Rectangle(2, 3).area() == 6
+    assert m.Rectangle(4, 5).area() == 20

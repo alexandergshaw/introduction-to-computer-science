@@ -78,6 +78,7 @@ export default function SceneCanvas({
           status={assignment.status}
           reducedMotion={reducedMotion}
           highlighted={assignment.slug === highlightedSlug}
+          current={assignment.status === "in-progress"}
           onHover={(over) => onHover(over ? assignment.slug : null)}
           onSelect={() => onSelect(assignment.slug)}
         />

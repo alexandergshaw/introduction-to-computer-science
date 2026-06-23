@@ -2,8 +2,8 @@
 Student Work — Review 14: Review Module 2
 ==========================================
 Week 14 is the second review week — a dedicated opportunity to
-consolidate your learning from Weeks 8 through 13 before the
-final stretch of the course.
+consolidate your learning from Weeks 8 through 13, plus a cumulative
+pass over Weeks 0–7, before the final exam.
 
 ──────────────────────────────────────────────────────
 TOPICS TO REVIEW
@@ -40,11 +40,12 @@ Use this week to revisit and solidify your understanding of:
     □ pytest.raises() for testing expected exceptions
     □ The TDD cycle: Red → Green → Refactor
 
-  WEEK 12 — Git and Branching
-    □ git status, git add, git commit, git push, git pull
-    □ Branches: creating, switching, merging
-    □ Resolving merge conflicts
-    □ Why we branch (feature isolation, parallel development)
+  WEEK 12 — Advanced Unit Testing
+    □ Fixtures for reusable setup (@pytest.fixture, tmp_path)
+    □ Parametrization (@pytest.mark.parametrize)
+    □ Mocking / monkeypatch to isolate code under test
+    □ The Arrange–Act–Assert structure
+    □ Measuring coverage (pytest --cov)
 
   WEEK 13 — Best Practices
     □ PEP 8 naming conventions (snake_case, PascalCase, UPPER_CASE)
@@ -53,6 +54,13 @@ Use this week to revisit and solidify your understanding of:
     □ Meaningful variable and function names
     □ Comments explain WHY, not WHAT
     □ Single responsibility principle for functions
+
+  CUMULATIVE — also on Exam 2 (from Weeks 0–7; see Review 1)
+    □ Git & GitHub workflow: branching off main, commits, PRs, merging
+    □ Python basics: running files, print(), comments, reading errors
+    □ Variables & data types; operators; if/elif/else and loops
+    □ Functions: parameters, return values, scope
+    □ Data structures: list, dict, tuple, set
 
 ──────────────────────────────────────────────────────
 SELF-TEST QUESTIONS
@@ -64,8 +72,8 @@ Try answering these without looking anything up:
   3. What does super() do? When would you use it?
   4. What is the difference between "w" and "a" file modes?
   5. What makes a good unit test? Name three characteristics.
-  6. What does git merge do?
-  7. What is a merge conflict, and how do you resolve it?
+  6. What is a pytest fixture, and when would you use one?
+  7. How does @pytest.mark.parametrize reduce duplicated test code?
   8. What does DRY mean? Give an example of a DRY violation and how to fix it.
 
 ──────────────────────────────────────────────────────
@@ -88,16 +96,17 @@ The final exam and the final project are just around the corner.
 You've learned so much — this review will tie it all together! 🎓
 """
 
-# ─── Completion Flag ──────────────────────────────────────────────────────────
-#
-# Change False to True after completing all review activities.
-#
-MODULE_COMPLETED = False
+# ─── Exercise solution ──────────────────────────────────────────────────────
+class BankAccount:
+    """A minimal bank account."""
 
+    def __init__(self, balance: float = 0) -> None:
+        self.balance = balance
 
-# ─── Status Function ──────────────────────────────────────────────────────────
-# Do NOT change this function.
-#
-def module_status() -> bool:
-    """Return module completion state."""
-    return MODULE_COMPLETED
+    def deposit(self, amount: float) -> None:
+        """Add amount to the balance."""
+        self.balance += amount
+
+    def withdraw(self, amount: float) -> None:
+        """Subtract amount from the balance."""
+        self.balance -= amount

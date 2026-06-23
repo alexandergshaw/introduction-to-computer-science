@@ -11,9 +11,6 @@ def load_student_work():
     return module
 
 
-def test_student_name_is_set():
-    module = load_student_work()
-    assert hasattr(module, "STUDENT_NAME")
-    assert isinstance(module.STUDENT_NAME, str)
-    assert module.STUDENT_NAME.strip()
-    assert module.STUDENT_NAME != "Your Name"
+def test_hello():
+    m = load_student_work()
+    assert m.hello() == "Hello, world!"

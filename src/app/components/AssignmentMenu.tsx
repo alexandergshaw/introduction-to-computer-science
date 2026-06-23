@@ -61,6 +61,8 @@ export function AssignmentMenu({
             >
               <span
                 className={`block rounded-full transition-all duration-200 ${dotColor[assignment.status]} ${
+                  assignment.status === "in-progress" ? "toc-current" : ""
+                } ${
                   active ? `h-3.5 w-3.5 ${dotGlow[assignment.status]}` : "h-2 w-2 group-hover:h-2.5 group-hover:w-2.5"
                 }`}
               />

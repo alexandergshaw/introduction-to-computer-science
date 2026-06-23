@@ -1,10 +1,12 @@
 import { promises as fs } from "node:fs";
+import { execFileSync } from "node:child_process";
 import path from "node:path";
 import { marked } from "marked";
 import { moduleDefinitions, type ModuleType } from "../components/modules";
 import type { AssignmentStatus } from "../components/statusStyles";
 
-const assignmentsDir = path.join(process.cwd(), "assignments");
+const projectRoot = process.cwd();
+const assignmentsDir = path.join(projectRoot, "assignments");
 
 export type AssignmentStatusInfo = {
   slug: string;
@@ -17,18 +19,46 @@ export type AssignmentStatusInfo = {
 };
 
 function toStatus(completed: boolean, unlocked: boolean): AssignmentStatus {
-  if (completed) return "completed";
-  return unlocked ? "in-progress" : "locked";
+  // A module stays locked until everything before it passes — even if its own
+  // tests happen to pass.
+  if (!unlocked) return "locked";
+  return completed ? "completed" : "in-progress";
 }
 
-function isCompleted(slug: string, studentWork: string): boolean {
-  if (slug === "assignment0") {
-    const studentNameMatch = studentWork.match(/STUDENT_NAME\s*=\s*["']([^"']+)["']/);
-    const studentName = studentNameMatch?.[1]?.trim() ?? "";
-    return studentName.length > 0 && studentName !== "Your Name";
+// ── Python detection ──────────────────────────────────────────────────────────
+// Resolve a working Python launcher once. `undefined` = not checked yet,
+// `null` = none available.
+let pythonCmd: string[] | null | undefined;
+function getPythonCmd(): string[] | null {
+  if (pythonCmd !== undefined) return pythonCmd;
+  for (const candidate of [["python"], ["py", "-3"], ["python3"]]) {
+    try {
+      execFileSync(candidate[0], [...candidate.slice(1), "--version"], { stdio: "ignore" });
+      pythonCmd = candidate;
+      return pythonCmd;
+    } catch {
+      // try the next candidate
+    }
   }
+  pythonCmd = null;
+  return null;
+}
 
-  return /MODULE_COMPLETED\s*=\s*True\b/.test(studentWork);
+// A module counts as complete only when its unit tests pass (pytest exit 0).
+// If Python isn't available (e.g. a Node-only build), fall back to treating the
+// shipped solutions as passing so the reference site still renders.
+function assignmentTestsPass(slug: string): boolean {
+  const py = getPythonCmd();
+  if (!py) return true;
+  try {
+    execFileSync(py[0], [...py.slice(1), "-m", "pytest", path.posix.join("assignments", slug), "-q"], {
+      cwd: projectRoot,
+      stdio: "ignore",
+    });
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 export async function getAllAssignmentSlugs(): Promise<string[]> {
@@ -37,11 +67,17 @@ export async function getAllAssignmentSlugs(): Promise<string[]> {
 }
 
 /**
- * Reads every assignment directory, determines completion from its
- * student_work.py, and unlocks modules sequentially (each completed module
- * unlocks the next).
+ * Determine each module's status. A module is "completed" when its unit tests
+ * pass; modules unlock sequentially (each completed module unlocks the next).
+ * Memoized so pytest runs once per server process / build, not per request.
  */
-export async function loadAssignmentStatuses(): Promise<AssignmentStatusInfo[]> {
+let statusesPromise: Promise<AssignmentStatusInfo[]> | null = null;
+export function loadAssignmentStatuses(): Promise<AssignmentStatusInfo[]> {
+  if (!statusesPromise) statusesPromise = computeStatuses();
+  return statusesPromise;
+}
+
+async function computeStatuses(): Promise<AssignmentStatusInfo[]> {
   const directoryNames = await getAllAssignmentSlugs();
 
   const definitionMap = new Map(moduleDefinitions.map((item) => [item.slug, item]));
@@ -66,19 +102,13 @@ export async function loadAssignmentStatuses(): Promise<AssignmentStatusInfo[]> 
       return a.slug.localeCompare(b.slug);
     });
 
-  const baseStatuses = await Promise.all(
-    discovered.map(async (moduleInfo) => {
-      const studentWorkPath = path.join(assignmentsDir, moduleInfo.slug, "student_work.py");
-      const studentWork = await fs.readFile(studentWorkPath, "utf-8");
-      return {
-        slug: moduleInfo.slug,
-        week: moduleInfo.week,
-        title: moduleInfo.title,
-        type: moduleInfo.type,
-        completed: isCompleted(moduleInfo.slug, studentWork),
-      };
-    }),
-  );
+  const baseStatuses = discovered.map((moduleInfo) => ({
+    slug: moduleInfo.slug,
+    week: moduleInfo.week,
+    title: moduleInfo.title,
+    type: moduleInfo.type,
+    completed: assignmentTestsPass(moduleInfo.slug),
+  }));
 
   let shouldUnlockNext = true;
   return baseStatuses.map((moduleStatus) => {

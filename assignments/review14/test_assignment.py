@@ -11,13 +11,11 @@ def load_student_work():
     return module
 
 
-def test_module_completed_flag():
-    module = load_student_work()
-    assert hasattr(module, "MODULE_COMPLETED")
-    assert module.MODULE_COMPLETED is True
-
-
-def test_module_status_function_matches_flag():
-    module = load_student_work()
-    assert hasattr(module, "module_status")
-    assert module.module_status() is module.MODULE_COMPLETED
+def test_bank_account():
+    m = load_student_work()
+    acct = m.BankAccount()
+    assert acct.balance == 0
+    acct.deposit(100)
+    acct.withdraw(30)
+    assert acct.balance == 70
+    assert m.BankAccount(50).balance == 50
