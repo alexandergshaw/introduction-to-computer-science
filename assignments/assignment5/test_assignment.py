@@ -1,8 +1,13 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Automated tests. You don't edit this file — but READING it shows you exactly
+# what your code should do. Run it from the Testing panel and aim for all green.
+# ─────────────────────────────────────────────────────────────────────────────
 import importlib.util
 from pathlib import Path
 
 
 def load_student_work():
+    """Load your student_work.py so the test below can call your functions."""
     module_path = Path(__file__).with_name("student_work.py")
     spec = importlib.util.spec_from_file_location("student_work", module_path)
     module = importlib.util.module_from_spec(spec)
@@ -13,5 +18,5 @@ def load_student_work():
 
 def test_unique_sorted():
     m = load_student_work()
-    assert m.unique_sorted([3, 1, 3, 2]) == [1, 2, 3]
-    assert m.unique_sorted([]) == []
+    assert m.unique_sorted([3, 1, 3, 2]) == [1, 2, 3]  # duplicates removed, then sorted
+    assert m.unique_sorted([]) == []                   # an empty list stays empty

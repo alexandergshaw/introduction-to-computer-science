@@ -112,28 +112,36 @@ it your best shot. You've got this! 🎯
 """
 
 # ─── Exercise solutions ─────────────────────────────────────────────────────
+# These mirror the practice problems above. Read the comments to understand
+# HOW each one works rather than just memorizing it.
+
+# A class bundles data (make, model) with behavior (describe()).
+# Hint: store the two values in __init__, then combine them in describe().
 class Car:
     """A car that can describe itself."""
 
     def __init__(self, make: str, model: str) -> None:
-        self.make = make
-        self.model = model
+        self.make = make      # this car's make,  e.g. "Toyota"
+        self.model = model    # this car's model, e.g. "Corolla"
 
     def describe(self) -> str:
         """Return 'make model'."""
         return f"{self.make} {self.model}"
 
 
+# Inheritance + overriding: a Dog IS an Animal, but speaks differently.
 class Animal:
     def speak(self) -> str:
         return "..."
 
 
-class Dog(Animal):
-    def speak(self) -> str:
+class Dog(Animal):           # Dog inherits everything from Animal...
+    def speak(self) -> str:  # ...but overrides speak() with its own sound.
         return "Woof!"
 
 
+# Error handling: attempt the risky division, react if it fails.
+# Hint: dividing by zero raises ZeroDivisionError — catch it and return None.
 def safe_divide(a: float, b: float):
     """Return a / b, or None if dividing by zero."""
     try:

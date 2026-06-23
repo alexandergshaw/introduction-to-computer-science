@@ -98,6 +98,13 @@ Strong tests are what let you change code without fear. 🧪
 """
 
 # ─── Exercise solution ──────────────────────────────────────────────────────
+# Exercise: clamp(n, low, high) keeps n inside the range low..high.
+#   clamp(5, 0, 10) -> 5    clamp(-3, 0, 10) -> 0    clamp(99, 0, 10) -> 10
+# Things to know:
+#   • min(x, y) gives the SMALLER of two values; max(x, y) gives the LARGER.
+# Hint (no spoilers): if n is too big, pull it down to high; if it's too
+# small, lift it up to low. Combining min() and max() does both at once.
 def clamp(n: float, low: float, high: float) -> float:
     """Constrain n to the inclusive range [low, high]."""
+    # min(n, high) caps the top end; max(low, ...) lifts the bottom end.
     return max(low, min(n, high))

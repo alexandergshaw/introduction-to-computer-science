@@ -97,16 +97,26 @@ You've learned so much — this review will tie it all together! 🎓
 """
 
 # ─── Exercise solution ──────────────────────────────────────────────────────
+# Exercise: a BankAccount that remembers its balance and supports deposits
+# and withdrawals.
+#   acct = BankAccount(); acct.deposit(100); acct.withdraw(30)  -> balance 70
+# Things to know:
+#   • __init__ sets up a new account; "balance=0" means it starts empty unless
+#     you pass a starting amount, e.g. BankAccount(50).
+#   • self.balance is THIS account's running total.
+#   • "+=" adds to a value in place; "-=" subtracts from it.
+# Hint (no spoilers): deposit makes the balance go up, withdraw makes it go down.
 class BankAccount:
     """A minimal bank account."""
 
     def __init__(self, balance: float = 0) -> None:
+        # Remember the starting balance on this specific account.
         self.balance = balance
 
     def deposit(self, amount: float) -> None:
         """Add amount to the balance."""
-        self.balance += amount
+        self.balance += amount   # same as: self.balance = self.balance + amount
 
     def withdraw(self, amount: float) -> None:
         """Subtract amount from the balance."""
-        self.balance -= amount
+        self.balance -= amount   # take the money back out

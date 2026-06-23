@@ -1,8 +1,13 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Automated tests. You don't edit this file — but READING it shows you exactly
+# what your code should do. Run it from the Testing panel and aim for all green.
+# ─────────────────────────────────────────────────────────────────────────────
 import importlib.util
 from pathlib import Path
 
 
 def load_student_work():
+    """Load your student_work.py so the test below can call your functions."""
     module_path = Path(__file__).with_name("student_work.py")
     spec = importlib.util.spec_from_file_location("student_work", module_path)
     module = importlib.util.module_from_spec(spec)
@@ -13,9 +18,9 @@ def load_student_work():
 
 def test_exam2():
     m = load_student_work()
-    assert m.Car("Toyota", "Corolla").describe() == "Toyota Corolla"
-    assert m.Dog().speak() == "Woof!"
-    assert isinstance(m.Dog(), m.Animal)
-    assert m.safe_divide(6, 2) == 3
-    assert m.safe_divide(1, 0) is None
+    assert m.Car("Toyota", "Corolla").describe() == "Toyota Corolla"  # class + method
+    assert m.Dog().speak() == "Woof!"      # overriding a method
+    assert isinstance(m.Dog(), m.Animal)   # inheritance: a Dog is an Animal
+    assert m.safe_divide(6, 2) == 3        # normal division
+    assert m.safe_divide(1, 0) is None     # divide-by-zero handled
     assert m.add(2, 3) == 5

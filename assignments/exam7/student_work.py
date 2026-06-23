@@ -83,14 +83,18 @@ You've covered a lot of ground. Trust your preparation! 🎯
 """
 
 # ─── Exercise solution ──────────────────────────────────────────────────────
+# Exercise: letter_grade(score) turns a 0–100 score into a letter grade.
+#   90+ -> "A", 80s -> "B", 70s -> "C", 60s -> "D", below 60 -> "F".
+# Hint (no spoilers): check the HIGHEST cutoff first and work down. Each branch
+# returns right away, so once one matches the rest are skipped automatically.
 def letter_grade(score: float) -> str:
     """Return the letter grade for a numeric score (0–100)."""
-    if score >= 90:
+    if score >= 90:      # 90 and above
         return "A"
-    if score >= 80:
+    if score >= 80:      # 80–89 (we've already ruled out 90+)
         return "B"
-    if score >= 70:
+    if score >= 70:      # 70–79
         return "C"
-    if score >= 60:
+    if score >= 60:      # 60–69
         return "D"
-    return "F"
+    return "F"           # anything left is below 60

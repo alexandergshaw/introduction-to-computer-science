@@ -79,6 +79,14 @@ in the second half of the semester much easier. 📚
 """
 
 # ─── Exercise solution ──────────────────────────────────────────────────────
+# Exercise: even_numbers(nums) returns just the even values, in their order.
+#   even_numbers([1, 2, 3, 4]) -> [2, 4]
+# Things to know:
+#   • n % 2 is the REMAINDER when dividing n by 2. Even numbers leave 0.
+#   • [ value for item in list if test ] is a "list comprehension": it builds
+#     a new list, keeping only the items that pass the test.
+# Hint (no spoilers): keep each number whose remainder after % 2 is 0.
 def even_numbers(nums: list) -> list:
     """Return the even numbers from nums, preserving order."""
+    # For every n in nums, keep it only when n % 2 == 0 (i.e. it's even).
     return [n for n in nums if n % 2 == 0]
