@@ -15,9 +15,7 @@ The dashboard is built with **Next.js (App Router)** and **Tailwind CSS**. It re
 
 ## Repository Layout
 
-- `assignments/assignment0` through `assignments/assignment16`
-- `assignments/review6`, `assignments/review14`
-- `assignments/exam7`, `assignments/exam15`
+- `assignments/week-00-assignment` through `assignments/week-15-exam`
 - `src/app/components/`
 - `src/app/page.tsx`
 
@@ -29,26 +27,26 @@ Each assignment-style folder contains:
 
 ## Course Schedule
 
-- **Week 1:** assignment1 - Environment Setup
-- **Week 2:** assignment2 - Variables/Deployment
-- **Week 3:** assignment3 - Logic/Control Flow
-- **Week 4:** assignment4 - Functions/Modular Programming
-- **Week 5:** assignment5 - Data Structures
-- **Week 6:** review6 - Review assignment
-- **Week 7:** exam7 - Test 1 practice
-- **Week 8:** assignment8 - OOP Classes
-- **Week 9:** assignment9 - Advanced OOP
-- **Week 10:** assignment10 - Error Handling/File IO
-- **Week 11:** assignment11 - Unit Testing
-- **Week 12:** assignment12 - Git/Branching
-- **Week 13:** assignment13 - Best Practices
-- **Week 14:** review14 - Review assignment
-- **Week 15:** exam15 - Test 2 practice
-- **Week 16:** assignment16 - Final Project
+- **Week 0:** week-00-assignment - Orientation
+- **Week 1:** week-01-assignment - Python Basics
+- **Week 2:** week-02-assignment - Variables/Deployment
+- **Week 3:** week-03-assignment - Logic/Control Flow
+- **Week 4:** week-04-assignment - Functions/Modular Programming
+- **Week 5:** week-05-assignment - Data Structures
+- **Week 6:** week-06-review - Review assignment
+- **Week 7:** week-07-exam - Test 1 practice
+- **Week 8:** week-08-assignment - OOP Classes
+- **Week 9:** week-09-assignment - Advanced OOP
+- **Week 10:** week-10-assignment - Error Handling/File IO
+- **Week 11:** week-11-assignment - Unit Testing
+- **Week 12:** week-12-assignment - Advanced Unit Testing
+- **Week 13:** week-13-assignment - Best Practices
+- **Week 14:** week-14-review - Review assignment
+- **Week 15:** week-15-exam - Test 2 practice
 
-## Assignment 0
+## Week 0
 
-`assignments/assignment0/INSTRUCTIONS.md` provides UI-only onboarding steps for:
+`assignments/week-00-assignment/INSTRUCTIONS.md` provides UI-only onboarding steps for:
 
 - forking the repository
 - deploying to Vercel
