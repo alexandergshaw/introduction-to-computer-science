@@ -3,6 +3,7 @@ Assignment 04 — Functions and Modular Programming
 =================================================
 Week 4: parameters, return values, and DEFAULT parameter values.
 
+── ASSIGNMENT INSTRUCTIONS (what you must do) ──
 Write each function so it returns the described value, then run
 test_assignment.py until all the tests pass.
 
@@ -13,6 +14,7 @@ What to build:
                                       greeting is optional and defaults to "Hello"
   3. triple(n)                     -> n multiplied by 3
 
+── HELPFUL EXAMPLES & NOTES (background — not required steps) ──
 Concepts you'll use:
   • Writing  c=0  or  greeting="Hello"  in the signature gives a parameter a
     DEFAULT value, used automatically when the caller leaves that argument out.
@@ -27,7 +29,7 @@ def add(a: float, b: float, c: float = 0) -> float:
     Return the sum of a, b, and c. c is optional and defaults to 0, so leaving
     it out simply adds the first two numbers.
 
-    Example:
+    Helpful example:
         add(2, 3)    -> 5
         add(2, 3, 4) -> 9
     """
@@ -39,7 +41,7 @@ def greet(name: str, greeting: str = "Hello") -> str:
     Return a greeting of the form "<greeting>, <name>!". greeting is optional and
     defaults to "Hello".
 
-    Example:
+    Helpful example:
         greet("Sam")        -> "Hello, Sam!"
         greet("Sam", "Hi")  -> "Hi, Sam!"
     """
@@ -50,7 +52,7 @@ def triple(n: float) -> float:
     """
     Return n multiplied by 3.
 
-    Example:
+    Helpful example:
         triple(4) -> 12
     """
     return n * 3

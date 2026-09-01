@@ -4,6 +4,7 @@ Review 14 — Review 2
 A mixed review of Weeks 8–13: a class, error handling, and a testing-friendly
 function. You've built each of these kinds of things before.
 
+── ASSIGNMENT INSTRUCTIONS (what you must do) ──
 Write each one so it matches the description, then run test_assignment.py until
 all the tests pass.
 
@@ -16,6 +17,7 @@ What to build:
   3. is_palindrome(s)  -> True if s reads the same backwards,
                           ignoring capitalisation                   (testing)
 
+── HELPFUL EXAMPLES & NOTES (background — not required steps) ──
 Concepts you'll use:
   • A class keeps its state on  self  (here, self.balance) and its methods change
     that state.
@@ -47,7 +49,7 @@ def safe_divide(a: float, b: float):
     """
     Return a divided by b. If b is 0, return None instead of crashing.
 
-    Example:
+    Helpful example:
         safe_divide(6, 2) -> 3
         safe_divide(1, 0) -> None
     """
@@ -62,7 +64,7 @@ def is_palindrome(s: str) -> bool:
     Return True if s reads the same forwards and backwards, ignoring
     capitalisation; otherwise False.
 
-    Example:
+    Helpful example:
         is_palindrome("racecar") -> True
         is_palindrome("hello")   -> False
     """

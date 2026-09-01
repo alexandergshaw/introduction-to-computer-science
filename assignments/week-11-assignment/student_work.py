@@ -4,6 +4,7 @@ Assignment 11 — Unit Testing
 Week 11: small, predictable functions that are easy to test, including their
 edge cases. Build the three functions described below.
 
+── ASSIGNMENT INSTRUCTIONS (what you must do) ──
 Write each function so it matches the description, then run test_assignment.py
 until all the tests pass.
 
@@ -13,6 +14,7 @@ What to build:
   2. is_even(n)       -> True if the whole number n is even; otherwise False
   3. absolute(n)      -> the size of n with no negative sign (its distance from 0)
 
+── HELPFUL EXAMPLES & NOTES (background — not required steps) ──
 Concepts you'll use:
   • A string has a  .lower()  method (a lowercase copy), useful for ignoring
     capitalisation.
@@ -28,7 +30,7 @@ def is_palindrome(s: str) -> bool:
     Return True if s reads the same forwards and backwards, ignoring
     capitalisation; otherwise False.
 
-    Example:
+    Helpful example:
         is_palindrome("racecar") -> True
         is_palindrome("hello")   -> False
     """
@@ -40,7 +42,7 @@ def is_even(n: int) -> bool:
     """
     Return True if the whole number n is even, otherwise False.
 
-    Example:
+    Helpful example:
         is_even(4) -> True
         is_even(7) -> False
     """
@@ -52,7 +54,7 @@ def absolute(n: float) -> float:
     Return the absolute value of n — its distance from 0, which is never
     negative.
 
-    Example:
+    Helpful example:
         absolute(-3) -> 3
         absolute(5)  -> 5
     """

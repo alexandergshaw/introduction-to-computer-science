@@ -4,6 +4,7 @@ Assignment 08 — OOP: Classes
 Week 8: writing your own classes with __init__, self, and methods. Build three
 small classes so their objects behave as described below.
 
+── ASSIGNMENT INSTRUCTIONS (what you must do) ──
 Write the code so each object behaves correctly, then run test_assignment.py
 until all the tests pass.
 
@@ -15,6 +16,7 @@ What to build:
   3. Person(name)             — remembers a name.
        .greet() returns a short self-introduction of the form  Hi, I'm <name>
 
+── HELPFUL EXAMPLES & NOTES (background — not required steps) ──
 Concepts you'll use:
   • __init__ runs automatically when an object is created, e.g. Rectangle(2, 3).
   • "self" refers to THIS particular object; you store values on it by writing
@@ -37,7 +39,7 @@ class Rectangle:
         """
         Return this rectangle's area.
 
-        Example:
+        Helpful example:
             Rectangle(3, 4).area() -> 12
         """
         return self.width * self.height
@@ -54,7 +56,7 @@ class Square:
         """
         Return this square's area.
 
-        Example:
+        Helpful example:
             Square(5).area() -> 25
         """
         return self.side * self.side
@@ -71,7 +73,7 @@ class Person:
         """
         Return a short self-introduction of the form "Hi, I'm <name>".
 
-        Example:
+        Helpful example:
             Person("Ada").greet() -> "Hi, I'm Ada"
         """
         return f"Hi, I'm {self.name}"

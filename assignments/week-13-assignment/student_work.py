@@ -3,6 +3,7 @@ Assignment 13 — Best Practices
 ==============================
 Week 13: clean, readable string helpers. Three small problems.
 
+── ASSIGNMENT INSTRUCTIONS (what you must do) ──
 Write each function so it matches the description, then run test_assignment.py
 until all the tests pass.
 
@@ -15,6 +16,7 @@ What to build:
                                       lowercase, trimmed, and with spaces turned
                                       into dashes
 
+── HELPFUL EXAMPLES & NOTES (background — not required steps) ──
 Concepts you'll use:
   • .strip() removes spaces from the start and end of a string; .lower() and
     .upper() change its case.
@@ -30,7 +32,7 @@ def format_full_name(first: str, last: str) -> str:
     Return "<first> <last>" as a single string, with any extra spaces around
     each name removed.
 
-    Example:
+    Helpful example:
         format_full_name("Ada", "Lovelace")      -> "Ada Lovelace"
         format_full_name("  Ada ", "Lovelace ")  -> "Ada Lovelace"
     """
@@ -41,7 +43,7 @@ def initials(first: str, last: str) -> str:
     """
     Return the uppercase initials, each followed by a dot.
 
-    Example:
+    Helpful example:
         initials("Ada", "Lovelace") -> "A.L."
         initials("grace", "hopper")  -> "G.H."
     """
@@ -53,7 +55,7 @@ def slugify(text: str) -> str:
     Return a URL-friendly slug: lowercase, trimmed, with spaces turned into
     dashes.
 
-    Example:
+    Helpful example:
         slugify("  Hello World ") -> "hello-world"
     """
     return text.strip().lower().replace(" ", "-")

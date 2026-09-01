@@ -4,6 +4,7 @@ Exam 07 — Exam 1
 Practice exam covering Weeks 0–6 (data types, control flow, functions, and data
 structures). Three short problems at the same level as the weekly work.
 
+── ASSIGNMENT INSTRUCTIONS (what you must do) ──
 Write each function so it matches the description, then run test_assignment.py
 until all the tests pass.
 
@@ -14,6 +15,7 @@ What to build:
   2. average(nums)         -> the average (mean) of the numbers in the list
   3. count_positives(nums) -> how many numbers in the list are greater than 0
 
+── HELPFUL EXAMPLES & NOTES (background — not required steps) ──
 Concepts you'll use:
   • if / elif checks run top to bottom and the first true one wins, so the order
     of your cutoffs matters.
@@ -28,7 +30,7 @@ def letter_grade(score: float) -> str:
     Return the letter grade for a numeric score (0–100) using the standard
     cutoffs: 90+ = A, 80+ = B, 70+ = C, 60+ = D, anything below 60 = F.
 
-    Example:
+    Helpful example:
         letter_grade(95) -> "A"
         letter_grade(72) -> "C"
         letter_grade(40) -> "F"
@@ -48,7 +50,7 @@ def average(nums: list) -> float:
     """
     Return the average (mean) of the numbers in nums.
 
-    Example:
+    Helpful example:
         average([2, 4, 6]) -> 4
     """
     return sum(nums) / len(nums)
@@ -58,7 +60,7 @@ def count_positives(nums: list) -> int:
     """
     Return how many numbers in nums are greater than 0.
 
-    Example:
+    Helpful example:
         count_positives([-1, 2, 0, 5]) -> 2
         count_positives([-3, -2])      -> 0
     """

@@ -3,6 +3,7 @@ Assignment 02 — Variables and Deployment
 =========================================
 Week 2: variables and arithmetic. Three short calculations.
 
+── ASSIGNMENT INSTRUCTIONS (what you must do) ──
 Write each function so it returns the described value, then run
 test_assignment.py until all the tests pass.
 
@@ -11,6 +12,7 @@ What to build:
   2. square(n)                     -> n squared (n multiplied by itself)
   3. average(a, b)                 -> the average (mean) of the two numbers
 
+── HELPFUL EXAMPLES & NOTES (background — not required steps) ──
 Concepts you'll use:
   • Python's math operators:  +  -  *  /   (  *  multiplies,  /  divides).
   • Parentheses control the order of operations, just like in normal maths —
@@ -24,7 +26,7 @@ def rectangle_area(width: float, height: float) -> float:
     """
     Return the area of a rectangle with the given width and height.
 
-    Example:
+    Helpful example:
         rectangle_area(3, 4) -> 12
     """
     return width * height
@@ -34,7 +36,7 @@ def square(n: float) -> float:
     """
     Return n squared (the result of multiplying n by itself).
 
-    Example:
+    Helpful example:
         square(4) -> 16
     """
     return n * n
@@ -44,7 +46,7 @@ def average(a: float, b: float) -> float:
     """
     Return the average (mean) of the two numbers a and b.
 
-    Example:
+    Helpful example:
         average(4, 6) -> 5
     """
     return (a + b) / 2
