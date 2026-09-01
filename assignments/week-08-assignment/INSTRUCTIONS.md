@@ -1,4 +1,28 @@
-# Module Instructions (No Terminal)
+# Assignment 08 — OOP: Classes
+
+Week 8: writing your own classes with `__init__`, `self`, and methods. Build three small classes so their objects behave as described below.
+
+## What to build
+
+1. `Rectangle(width, height)` — remembers its width and height.
+   - `.area()` returns the rectangle's area.
+   - Helpful example: `Rectangle(3, 4).area()` → `12`
+2. `Square(side)` — remembers its side length.
+   - `.area()` returns the square's area.
+   - Helpful example: `Square(5).area()` → `25`
+3. `Person(name)` — remembers a name.
+   - `.greet()` returns a short self-introduction of the form `"Hi, I'm <name>"`.
+   - Helpful example: `Person("Ada").greet()` → `"Hi, I'm Ada"`
+
+## Helpful examples & notes
+
+- `__init__` runs automatically when an object is created, e.g. `Rectangle(2, 3)`.
+- `self` refers to THIS particular object; you store values on it by writing something like `self.width = width`.
+- A method can read the values saved on `self` to work out its answer.
+
+> Tip: open `test_assignment.py` to see exactly how each object is created and used.
+
+## How to complete this module (no terminal)
 
 1. Open this repository in **Codespaces** from the GitHub **Code** button.
 2. **Create a branch off `main`** before you change anything:

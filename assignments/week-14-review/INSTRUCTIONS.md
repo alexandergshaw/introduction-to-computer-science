@@ -1,4 +1,26 @@
-# Module Instructions (No Terminal)
+# Review 14 — Review 2
+
+A mixed review of Weeks 8–13: a class, error handling, and a testing-friendly function. You've built each of these kinds of things before.
+
+## What to build
+
+1. `BankAccount(balance=0)` — a class that remembers a balance (starting at 0 when no opening balance is given). It has:
+   - `.deposit(amount)` — increases the balance by `amount`
+   - `.withdraw(amount)` — decreases the balance by `amount`
+2. `safe_divide(a, b)` — return `a` divided by `b`, or `None` when `b` is 0. *(error handling)*
+   - Helpful example: `safe_divide(6, 2)` → `3`; `safe_divide(1, 0)` → `None`
+3. `is_palindrome(s)` — return `True` if `s` reads the same backwards, ignoring capitalisation. *(testing)*
+   - Helpful example: `is_palindrome("racecar")` → `True`; `is_palindrome("hello")` → `False`
+
+## Helpful examples & notes
+
+- A class keeps its state on `self` (here, `self.balance`) and its methods change that state.
+- try / except handles an error (such as dividing by zero) instead of crashing.
+- A string's `.lower()` copy and its reverse (the `[::-1]` slice) help compare a string with itself.
+
+> Tip: open `test_assignment.py` to see the exact inputs and expected outputs.
+
+## How to complete this module (no terminal)
 
 1. Open this repository in **Codespaces** from the GitHub **Code** button.
 2. **Create a branch off `main`** before you change anything:

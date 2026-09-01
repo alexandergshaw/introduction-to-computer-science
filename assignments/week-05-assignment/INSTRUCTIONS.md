@@ -1,4 +1,24 @@
-# Module Instructions (No Terminal)
+# Assignment 05 — Data Structures
+
+Week 5: lists and sets, plus some handy built-in helper functions.
+
+## What to build
+
+1. `unique_sorted(items)` — return a list of the unique values from `items`, sorted in ascending order.
+   - Helpful example: `unique_sorted([3, 1, 2, 1])` → `[1, 2, 3]`
+2. `total(nums)` — return the sum of all the numbers in `nums`.
+   - Helpful example: `total([1, 2, 3])` → `6`
+3. `largest(nums)` — return the largest number in `nums`.
+   - Helpful example: `largest([4, 9, 2])` → `9`
+
+## Helpful examples & notes
+
+- A `set()` drops duplicate values; `sorted()` returns a new list in order.
+- `sum()` adds up the numbers in a list; `max()` finds the largest item.
+
+> Tip: open `test_assignment.py` to see the exact inputs and expected outputs.
+
+## How to complete this module (no terminal)
 
 1. Open this repository in **Codespaces** from the GitHub **Code** button.
 2. **Create a branch off `main`** before you change anything:

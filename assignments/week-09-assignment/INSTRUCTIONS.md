@@ -1,4 +1,24 @@
-# Module Instructions (No Terminal)
+# Assignment 09 — Advanced OOP
+
+Week 9: inheritance and overriding. There is one base class, `Animal`, and three specific animals that each inherit from it. Every subclass overrides `speak()` so it returns that animal's own sound.
+
+## What to build
+
+Each one is a subclass of `Animal`:
+
+1. `Dog` — `speak()` returns `"Woof!"`
+2. `Cat` — `speak()` returns `"Meow!"`
+3. `Cow` — `speak()` returns `"Moo!"`
+
+## Helpful examples & notes
+
+- Writing `class Dog(Animal)` means "a Dog is a kind of Animal" and inherits everything `Animal` already has.
+- "Overriding" means defining `speak()` again inside the subclass so it behaves differently from the version on `Animal`.
+- The base `Animal` class is already sketched in the file — write each subclass so it inherits from it.
+
+> Tip: open `test_assignment.py` to see the exact expected sounds.
+
+## How to complete this module (no terminal)
 
 1. Open this repository in **Codespaces** from the GitHub **Code** button.
 2. **Create a branch off `main`** before you change anything:

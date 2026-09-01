@@ -1,4 +1,24 @@
-# Module Instructions (No Terminal)
+# Assignment 12 — Advanced Unit Testing
+
+Week 12: functions worth testing across many inputs (think parametrized tests). Pay attention to the edge cases described below.
+
+## What to build
+
+1. `clamp(n, low, high)` — return `n` limited to the inclusive range `[low, high]`: `n` itself if it's already inside the range, otherwise the nearest boundary (`low` if too small, `high` if too big).
+   - Helpful example: `clamp(5, 0, 10)` → `5`; `clamp(15, 0, 10)` → `10`; `clamp(-4, 0, 10)` → `0`
+2. `in_range(n, low, high)` — return `True` if `n` is between `low` and `high` (inclusive), otherwise `False`.
+   - Helpful example: `in_range(5, 0, 10)` → `True`; `in_range(15, 0, 10)` → `False`
+3. `sign(n)` — return `1` if `n` is positive, `-1` if `n` is negative, and `0` if `n` is zero.
+   - Helpful example: `sign(-3)` → `-1`; `sign(0)` → `0`; `sign(8)` → `1`
+
+## Helpful examples & notes
+
+- `min(x, y)` returns the smaller of two values; `max(x, y)` returns the larger.
+- Python allows chained comparisons, e.g. `low <= n <= high`.
+
+> Tip: open `test_assignment.py` to see the exact inputs and expected outputs.
+
+## How to complete this module (no terminal)
 
 1. Open this repository in **Codespaces** from the GitHub **Code** button.
 2. **Create a branch off `main`** before you change anything:

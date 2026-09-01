@@ -1,4 +1,24 @@
-# Module Instructions (No Terminal)
+# Assignment 02 — Variables and Deployment
+
+Week 2: variables and arithmetic. Three short calculations.
+
+## What to build
+
+1. `rectangle_area(width, height)` — return the area of a rectangle with the given width and height.
+   - Helpful example: `rectangle_area(3, 4)` → `12`
+2. `square(n)` — return `n` squared (the result of multiplying `n` by itself).
+   - Helpful example: `square(4)` → `16`
+3. `average(a, b)` — return the average (mean) of the two numbers `a` and `b`.
+   - Helpful example: `average(4, 6)` → `5`
+
+## Helpful examples & notes
+
+- Python's math operators: `+  -  *  /` (`*` multiplies, `/` divides).
+- Parentheses control the order of operations, just like in normal maths — what's inside the parentheses happens first.
+
+> Tip: open `test_assignment.py` to see the exact inputs and expected outputs.
+
+## How to complete this module (no terminal)
 
 1. Open this repository in **Codespaces** from the GitHub **Code** button.
 2. **Create a branch off `main`** before you change anything:
