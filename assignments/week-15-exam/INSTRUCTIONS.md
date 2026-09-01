@@ -1,4 +1,28 @@
-# Module Instructions (No Terminal)
+# Exam 15 — Exam 2
+
+Practice exam covering Weeks 8–13 (classes, inheritance, error handling) plus a little earlier material. Four short problems at the same level as the weekly work.
+
+## What to build
+
+1. `Car(make, model)` — remembers a make and a model.
+   - `.describe()` returns them joined by a single space, e.g. `"Toyota Corolla"`.
+   - Helpful example: `Car("Toyota", "Corolla").describe()` → `"Toyota Corolla"`
+2. `Dog(Animal)` — a subclass of `Animal` whose `speak()` returns `"Woof!"`.
+   - Helpful example: `Dog().speak()` → `"Woof!"`
+3. `safe_divide(a, b)` — return `a` divided by `b`, or `None` when `b` is 0.
+   - Helpful example: `safe_divide(6, 2)` → `3`; `safe_divide(1, 0)` → `None`
+4. `add(a, b)` — return the sum of `a` and `b`.
+   - Helpful example: `add(2, 3)` → `5`
+
+## Helpful examples & notes
+
+- Store values on `self` in `__init__`, then use them inside a method.
+- A subclass (`class Dog(Animal)`) can override a method to change its behaviour.
+- try / except handles an error instead of letting it crash the program.
+
+> Tip: open `test_assignment.py` to see the exact inputs and expected outputs.
+
+## How to complete this module (no terminal)
 
 1. Open this repository in **Codespaces** from the GitHub **Code** button.
 2. **Create a branch off `main`** before you change anything:

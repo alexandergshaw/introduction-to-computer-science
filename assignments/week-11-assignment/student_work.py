@@ -1,63 +1,16 @@
-"""
-Assignment 11 — Unit Testing
-============================
-Week 11: small, predictable functions that are easy to test, including their
-edge cases. Build the three functions described below.
-
-── ASSIGNMENT INSTRUCTIONS (what you must do) ──
-Write each function so it matches the description, then run test_assignment.py
-until all the tests pass.
-
-What to build:
-  1. is_palindrome(s) -> True if s reads the same forwards and backwards,
-                         ignoring capitalisation; otherwise False
-  2. is_even(n)       -> True if the whole number n is even; otherwise False
-  3. absolute(n)      -> the size of n with no negative sign (its distance from 0)
-
-── HELPFUL EXAMPLES & NOTES (background — not required steps) ──
-Concepts you'll use:
-  • A string has a  .lower()  method (a lowercase copy), useful for ignoring
-    capitalisation.
-  • Slice notation can reverse a sequence — look up the  [::-1]  slice.
-  • The  %  (modulo) operator gives the remainder left after a division.
-
-Tip: open test_assignment.py to see the exact inputs and expected outputs.
-"""
+"""Assignment 11 — Unit Testing. See INSTRUCTIONS.md in this folder for the full assignment."""
 
 
 def is_palindrome(s: str) -> bool:
-    """
-    Return True if s reads the same forwards and backwards, ignoring
-    capitalisation; otherwise False.
-
-    Helpful example:
-        is_palindrome("racecar") -> True
-        is_palindrome("hello")   -> False
-    """
-    cleaned = s.lower()
-    return cleaned == cleaned[::-1]
+    # TODO: Write your solution here. See INSTRUCTIONS.md for the description and examples.
+    pass
 
 
 def is_even(n: int) -> bool:
-    """
-    Return True if the whole number n is even, otherwise False.
-
-    Helpful example:
-        is_even(4) -> True
-        is_even(7) -> False
-    """
-    return n % 2 == 0
+    # TODO: Write your solution here. See INSTRUCTIONS.md for the description and examples.
+    pass
 
 
 def absolute(n: float) -> float:
-    """
-    Return the absolute value of n — its distance from 0, which is never
-    negative.
-
-    Helpful example:
-        absolute(-3) -> 3
-        absolute(5)  -> 5
-    """
-    if n < 0:
-        return -n
-    return n
+    # TODO: Write your solution here. See INSTRUCTIONS.md for the description and examples.
+    pass

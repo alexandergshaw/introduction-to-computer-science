@@ -1,4 +1,25 @@
-# Module Instructions (No Terminal)
+# Assignment 11 — Unit Testing
+
+Week 11: small, predictable functions that are easy to test, including their edge cases. Build the three functions described below.
+
+## What to build
+
+1. `is_palindrome(s)` — return `True` if `s` reads the same forwards and backwards, ignoring capitalisation; otherwise `False`.
+   - Helpful example: `is_palindrome("racecar")` → `True`; `is_palindrome("hello")` → `False`
+2. `is_even(n)` — return `True` if the whole number `n` is even; otherwise `False`.
+   - Helpful example: `is_even(4)` → `True`; `is_even(7)` → `False`
+3. `absolute(n)` — return the absolute value of `n` — its distance from 0, which is never negative.
+   - Helpful example: `absolute(-3)` → `3`; `absolute(5)` → `5`
+
+## Helpful examples & notes
+
+- A string has a `.lower()` method (a lowercase copy), useful for ignoring capitalisation.
+- Slice notation can reverse a sequence — look up the `[::-1]` slice.
+- The `%` (modulo) operator gives the remainder left after a division.
+
+> Tip: open `test_assignment.py` to see the exact inputs and expected outputs.
+
+## How to complete this module (no terminal)
 
 1. Open this repository in **Codespaces** from the GitHub **Code** button.
 2. **Create a branch off `main`** before you change anything:

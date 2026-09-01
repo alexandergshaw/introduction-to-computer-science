@@ -1,83 +1,33 @@
-"""
-Exam 15 — Exam 2
-================
-Practice exam covering Weeks 8–13 (classes, inheritance, error handling) plus a
-little earlier material. Four short problems at the same level as the weekly work.
-
-── ASSIGNMENT INSTRUCTIONS (what you must do) ──
-Write each one so it matches the description, then run test_assignment.py until
-all the tests pass.
-
-What to build:
-  1. Car(make, model) — remembers a make and a model.
-       .describe() returns them joined by a single space, e.g.  Toyota Corolla
-  2. Dog(Animal)      — a subclass of Animal whose speak() returns  Woof!
-  3. safe_divide(a, b)-> a divided by b, or None when b is 0
-  4. add(a, b)        -> the sum of a and b
-
-── HELPFUL EXAMPLES & NOTES (background — not required steps) ──
-Concepts you'll use:
-  • Store values on  self  in __init__, then use them inside a method.
-  • A subclass (class Dog(Animal)) can override a method to change its behaviour.
-  • try / except handles an error instead of letting it crash the program.
-
-Tip: open test_assignment.py to see the exact inputs and expected outputs.
-"""
+"""Exam 15 — Exam 2. See INSTRUCTIONS.md in this folder for the full assignment."""
 
 
 class Car:
-    """A car that can describe itself."""
-
     def __init__(self, make: str, model: str) -> None:
-        """Remember this car's make and model for later."""
-        self.make = make
-        self.model = model
+        # TODO: Write your solution here. See INSTRUCTIONS.md for the description and examples.
+        pass
 
     def describe(self) -> str:
-        """
-        Return the make and model joined by a single space.
-
-        Helpful example:
-            Car("Toyota", "Corolla").describe() -> "Toyota Corolla"
-        """
-        return f"{self.make} {self.model}"
+        # TODO: Write your solution here. See INSTRUCTIONS.md for the description and examples.
+        pass
 
 
 class Animal:
-    """A generic animal. Subclasses override speak() with their own sound."""
-
     def speak(self) -> str:
-        """The default sound; subclasses replace this with their own."""
-        return "..."
+        # TODO: Write your solution here. See INSTRUCTIONS.md for the description and examples.
+        pass
 
 
 class Dog(Animal):
-    """A dog: a kind of Animal that overrides speak() with its own sound."""
-
     def speak(self) -> str:
-        """Return a dog's sound.  Helpful example: Dog().speak() -> "Woof!" """
-        return "Woof!"
+        # TODO: Write your solution here. See INSTRUCTIONS.md for the description and examples.
+        pass
 
 
 def safe_divide(a: float, b: float):
-    """
-    Return a divided by b. If b is 0, return None instead of crashing.
-
-    Helpful example:
-        safe_divide(6, 2) -> 3
-        safe_divide(1, 0) -> None
-    """
-    try:
-        return a / b
-    except ZeroDivisionError:
-        return None
+    # TODO: Write your solution here. See INSTRUCTIONS.md for the description and examples.
+    pass
 
 
 def add(a: float, b: float) -> float:
-    """
-    Return the sum of a and b.
-
-    Helpful example:
-        add(2, 3) -> 5
-    """
-    return a + b
+    # TODO: Write your solution here. See INSTRUCTIONS.md for the description and examples.
+    pass

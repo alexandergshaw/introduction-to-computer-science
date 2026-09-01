@@ -1,4 +1,19 @@
-# Module Instructions (No Terminal)
+# Review 06 — Review 1
+
+A mixed review of Weeks 0–5: control flow, data structures, and functions — one short problem from each area. You've written this kind of function before; if you get stuck, revisit the earlier week noted in parentheses.
+
+## What to build
+
+1. `classify(n)` — return `"positive"`, `"negative"`, or `"zero"` depending on `n`. *(Week 3)*
+   - Helpful example: `classify(5)` → `"positive"`; `classify(0)` → `"zero"`
+2. `total(nums)` — return the sum of all the numbers in the list `nums`. *(Week 5)*
+   - Helpful example: `total([1, 2, 3])` → `6`
+3. `greet(name)` — return a greeting of the form `"Hello, <name>!"`. *(Week 1)*
+   - Helpful example: `greet("Sam")` → `"Hello, Sam!"`
+
+> Tip: open `test_assignment.py` to see the exact inputs and expected outputs.
+
+## How to complete this module (no terminal)
 
 1. Open this repository in **Codespaces** from the GitHub **Code** button.
 2. **Create a branch off `main`** before you change anything:

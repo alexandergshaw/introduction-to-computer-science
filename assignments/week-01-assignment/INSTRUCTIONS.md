@@ -1,4 +1,25 @@
-# Module Instructions (No Terminal)
+# Assignment 01 — Python Basics
+
+Week 1: strings, simple functions, and f-strings. Three short problems.
+
+## What to build
+
+1. `greet(name)` — return a greeting addressed to `name`.
+   - Helpful example: `greet("Sam")` → `"Hello, Sam!"`
+2. `loud(text)` — return an all-uppercase version of `text`.
+   - Helpful example: `loud("hi")` → `"HI"`
+3. `add_excitement(text)` — return `text` with a single exclamation point added to the end.
+   - Helpful example: `add_excitement("go")` → `"go!"`
+
+## Helpful examples & notes
+
+- An f-string (written `f"..."`) lets you drop a value into the middle of some text using `{ }`.
+- Strings have an `.upper()` method that returns an all-uppercase copy.
+- The `+` operator joins two strings together.
+
+> Tip: open `test_assignment.py` to see the exact inputs and expected outputs.
+
+## How to complete this module (no terminal)
 
 1. Open this repository in **Codespaces** from the GitHub **Code** button.
 2. **Create a branch off `main`** before you change anything:

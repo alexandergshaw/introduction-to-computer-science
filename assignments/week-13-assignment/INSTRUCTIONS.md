@@ -1,4 +1,24 @@
-# Module Instructions (No Terminal)
+# Assignment 13 — Best Practices
+
+Week 13: clean, readable string helpers. Three small problems.
+
+## What to build
+
+1. `format_full_name(first, last)` — return `"<first> <last>"` as a single string, with any extra spaces around each name removed.
+   - Helpful example: `format_full_name("Ada", "Lovelace")` → `"Ada Lovelace"`; `format_full_name("  Ada ", "Lovelace ")` → `"Ada Lovelace"`
+2. `initials(first, last)` — return the uppercase initials, each followed by a dot.
+   - Helpful example: `initials("Ada", "Lovelace")` → `"A.L."`; `initials("grace", "hopper")` → `"G.H."`
+3. `slugify(text)` — return a URL-friendly slug: lowercase, trimmed, with spaces turned into dashes.
+   - Helpful example: `slugify("  Hello World ")` → `"hello-world"`
+
+## Helpful examples & notes
+
+- `.strip()` removes spaces from the start and end of a string; `.lower()` and `.upper()` change its case.
+- `text[0]` is the first character of a string; `.replace(old, new)` swaps every occurrence of one substring for another.
+
+> Tip: open `test_assignment.py` to see the exact inputs and expected outputs.
+
+## How to complete this module (no terminal)
 
 1. Open this repository in **Codespaces** from the GitHub **Code** button.
 2. **Create a branch off `main`** before you change anything:

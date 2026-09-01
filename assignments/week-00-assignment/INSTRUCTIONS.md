@@ -1,5 +1,24 @@
 # Assignment 0: Course Setup (No Terminal)
 
+Your very first file. Three tiny warm-up functions to get you used to the loop of "edit the code, then run the tests." Each one is a single line of code.
+
+## What to build
+
+1. `hello()` — return the exact text `Hello, world!`.
+2. `favorite_language()` — return the name of the programming language this course is taught in.
+3. `double_text(text)` — return `text` written out twice in a row, with nothing in between.
+   - Helpful example: `double_text("ab")` → `"abab"`
+
+## Helpful examples & notes
+
+- A function hands a value back to whoever called it with the `return` keyword.
+- Text wrapped in quotes is called a "string".
+- Two strings can be combined into one longer string with the `+` operator.
+
+> Tip: open `test_assignment.py` to see the exact inputs and expected outputs.
+
+## Setup and submission steps
+
 Follow every step using only the GitHub and Codespaces interface.
 
 1. **Fork the repository**
@@ -40,13 +59,13 @@ Follow every step using only the GitHub and Codespaces interface.
    <iframe src="https://www.youtube-nocookie.com/embed/gnC_NwDfkmI" title="How to use GitHub Codespaces (step by step)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 5. **Edit your student file**
-   - In Codespaces, open `assignments/assignment00/student_work.py`.
-   - Read the three short functions and the comments explaining them.
+   - In Codespaces, open `assignments/week-00-assignment/student_work.py`.
+   - Complete the three short functions described in **What to build** above.
    - Save the file.
 
 6. **Run tests from the Testing panel**
    - Click the **Testing** beaker icon in the left sidebar.
-   - Find `assignments/assignment00/test_assignment.py`.
+   - Find `assignments/week-00-assignment/test_assignment.py`.
    - Click the **Run Test** play button.
    - Confirm the test passes.
 

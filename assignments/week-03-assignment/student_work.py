@@ -1,61 +1,16 @@
-"""
-Assignment 03 — Logic and Control Flow
-======================================
-Week 3: comparisons and if / elif / else. Three short decisions.
-
-── ASSIGNMENT INSTRUCTIONS (what you must do) ──
-Write each function so it returns the described value, then run
-test_assignment.py until all the tests pass.
-
-What to build:
-  1. classify(n)   -> "positive", "negative", or "zero" depending on n
-  2. is_even(n)    -> True if n is even, otherwise False
-  3. larger(a, b)  -> whichever of the two numbers is bigger
-
-── HELPFUL EXAMPLES & NOTES (background — not required steps) ──
-Concepts you'll use:
-  • A comparison such as  n > 0  evaluates to True or False.
-  • if / elif / else lets your code choose between different branches.
-  • The  %  (modulo) operator gives the remainder left after a division.
-
-Tip: open test_assignment.py to see the exact inputs and expected outputs.
-"""
+"""Assignment 03 — Logic and Control Flow. See INSTRUCTIONS.md in this folder for the full assignment."""
 
 
 def classify(n: float) -> str:
-    """
-    Return "positive" if n is greater than 0, "negative" if it is less than 0,
-    and "zero" if it is exactly 0.
-
-    Helpful example:
-        classify(5)  -> "positive"
-        classify(0)  -> "zero"
-    """
-    if n > 0:
-        return "positive"
-    if n < 0:
-        return "negative"
-    return "zero"
+    # TODO: Write your solution here. See INSTRUCTIONS.md for the description and examples.
+    pass
 
 
 def is_even(n: int) -> bool:
-    """
-    Return True if the whole number n is even, otherwise False.
-
-    Helpful example:
-        is_even(4) -> True
-        is_even(7) -> False
-    """
-    return n % 2 == 0
+    # TODO: Write your solution here. See INSTRUCTIONS.md for the description and examples.
+    pass
 
 
 def larger(a: float, b: float) -> float:
-    """
-    Return whichever of a and b is larger.
-
-    Helpful example:
-        larger(3, 9) -> 9
-    """
-    if a > b:
-        return a
-    return b
+    # TODO: Write your solution here. See INSTRUCTIONS.md for the description and examples.
+    pass
