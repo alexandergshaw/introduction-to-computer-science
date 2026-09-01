@@ -2,7 +2,7 @@
 
 
 class BankAccount:
-    def __init__(self, balance: float=0) -> None:
+    def __init__(self, balance: float = 0) -> None:
         # TODO: Write your solution here. See INSTRUCTIONS.md for the description and examples.
         pass
 

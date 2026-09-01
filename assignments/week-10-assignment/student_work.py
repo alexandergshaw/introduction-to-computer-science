@@ -6,7 +6,7 @@ def safe_divide(a: float, b: float):
     pass
 
 
-def to_int(text: str, default: int=0) -> int:
+def to_int(text: str, default: int = 0) -> int:
     # TODO: Write your solution here. See INSTRUCTIONS.md for the description and examples.
     pass
 
